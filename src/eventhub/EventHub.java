@@ -4,10 +4,6 @@
  */
 package eventhub;
 
-/**
- *
- * @author hp
- */
 public class EventHub {
 
     /**
