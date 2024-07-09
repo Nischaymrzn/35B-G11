@@ -4,7 +4,7 @@
  */
 package eventhub;
 
-import eventhub.view.loginpage;
+import eventhub.view.Login;
 
 public class EventHub {
 
@@ -13,7 +13,7 @@ public class EventHub {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-          loginpage ss= new loginpage();
+          Login ss= new Login();
         ss.setVisible(true);
     }
     
