@@ -4,6 +4,7 @@
  */
 package eventhub;
 
+import eventhub.controller.DatabaseConnection;
 import eventhub.view.Login;
 
 public class EventHub {
@@ -12,8 +13,8 @@ public class EventHub {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-          Login ss= new Login();
+        DatabaseConnection db = new DatabaseConnection();
+        Login ss= new Login();
         ss.setVisible(true);
     }
     
