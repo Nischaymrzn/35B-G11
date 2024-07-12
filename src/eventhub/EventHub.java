@@ -12,8 +12,7 @@ public class EventHub {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-          Login ss= new Login();
+        Login ss= new Login();
         ss.setVisible(true);
     }
     
