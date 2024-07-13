@@ -4,7 +4,7 @@
  */
 package eventhub;
 
-import eventhub.view.loginpage;
+import eventhub.view.Login;
 
 public class EventHub {
 
@@ -12,8 +12,7 @@ public class EventHub {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-          loginpage ss= new loginpage();
+        Login ss= new Login();
         ss.setVisible(true);
     }
     
