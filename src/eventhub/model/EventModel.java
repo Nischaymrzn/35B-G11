@@ -37,19 +37,20 @@ public class EventModel implements EventModelInterface {
         this.organizerId = organizerId;
         this.eventName = eventName;
     }
-    @Override
+
     public int getEventId() {
         return eventId;
     }
-    @Override
+
     public void setEventId(int eventId) {
         this.eventId = eventId;
     }
-    @Override
+
+
     public int getOrganizerId() {
         return organizerId;
     }
-    @Override
+
     public void setOrganizerId(int organizerId) {
         this.organizerId = organizerId;
     }
