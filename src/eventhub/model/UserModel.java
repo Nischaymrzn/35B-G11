@@ -7,6 +7,8 @@ interface  UserModelInterface {
     public void setUserName(String userName);
     public String getUserEmail();
     public void setUserEmail(String userEmail);
+    public String getUserPassword();
+    public void setUserPassword(String userPassword);
     public String getPhoneNumber();
     public void setPhoneNumber(String phoneNumber);
 }  
@@ -15,12 +17,14 @@ public class UserModel implements UserModelInterface {
     private int userId;
     private String userName;
     private String userEmail;
+    private String userPassword;
     private String phoneNumber;
 
-    public UserModel(int userId,String userName, String userEmail, String phoneNumber) {
+    public UserModel(int userId,String userName, String userEmail,String userPassword, String phoneNumber) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
+        this.userPassword = userPassword;
         this.phoneNumber = phoneNumber;
     }
     @Override
@@ -46,6 +50,14 @@ public class UserModel implements UserModelInterface {
     @Override
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
+    }
+    @Override
+    public String getUserPassword() {
+        return userPassword;
+    }
+    @Override
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
     @Override
     public String getPhoneNumber() {
