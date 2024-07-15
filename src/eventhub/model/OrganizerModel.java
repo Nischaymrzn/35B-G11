@@ -1,10 +1,10 @@
 package eventhub.model;
 
 interface OrganizerModelInterface {
-    public String getOrganizerId();
-    public void setOrganizerId(String organizerId);
-    public String getAdminId();
-    public void setAdminId(String adminId);
+    public int getOrganizerId();
+    public void setOrganizerId(int organizerId);
+    public int getAdminId();
+    public void setAdminId(int adminId);
     public String getOrganizerName();
     public void setOrganizerName(String organizerName);
     public String getOrganizerEmail();
@@ -12,32 +12,32 @@ interface OrganizerModelInterface {
 }
 
 public class OrganizerModel implements OrganizerModelInterface {
-    private  String organizerId;
-    private  String adminId;
+    private  int organizerId;
+    private  int adminId;
     private  String organizerName;
     private  String organizerEmail;
 
-    public OrganizerModel(String organizerId, String adminId, String organizerName, String organizerEmail) {
+    public OrganizerModel(int organizerId, int adminId, String organizerName, String organizerEmail) {
         this.organizerId = organizerId;
         this.adminId = adminId;
         this.organizerName = organizerName;
         this.organizerEmail = organizerEmail;
     }
     @Override
-    public String getOrganizerId() {
+    public int getOrganizerId() {
         return organizerId;
     }
 
     @Override
-    public void setOrganizerId(String organizerId) {
+    public void setOrganizerId(int organizerId) {
         this.organizerId = organizerId;
     }
     @Override
-    public String getAdminId() {
+    public int getAdminId() {
         return adminId;
     }
     @Override
-    public void setAdminId(String adminId) {
+    public void setAdminId(int adminId) {
         this.adminId = adminId;
     }
     @Override

@@ -1,12 +1,12 @@
 package eventhub.model;
 
 interface EventModelInterface {
-    public String getEventId();
-    public void setEventId(String eventId);
-    public String getUserId();
-    public void setUserId(String userId);
-    public String getOrganizerId();
-    public void setOrganizerId(String organizerId);
+    public int getEventId();
+    public void setEventId(int eventId);
+    public int getUserId();
+    public void setUserId(int userId);
+    public int getOrganizerId();
+    public void setOrganizerId(int organizerId);
     public String getEventName();
     public void setEventName(String eventName);
     public String getEventType();
@@ -14,13 +14,13 @@ interface EventModelInterface {
 }
 
 public class EventModel implements EventModelInterface {
-    private  String eventId;
-    private  String userId;
-    private  String organizerId;
+    private  int eventId;
+    private  int userId;
+    private  int organizerId;
     private  String eventName;
     private  String eventType;
 
-    public EventModel(String eventId, String userId, String organizerId, String eventName, String eventType) {
+    public EventModel(int eventId, int userId, int organizerId, String eventName, String eventType) {
         this.eventId = eventId;
         this.userId = userId;
         this.organizerId = organizerId;
@@ -28,27 +28,27 @@ public class EventModel implements EventModelInterface {
         this.eventType = eventType;
     }
     @Override
-    public String getEventId() {
+    public int getEventId() {
         return eventId;
     }
     @Override
-    public void setEventId(String eventId) {
+    public void setEventId(int eventId) {
         this.eventId = eventId;
     }
     @Override
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
     @Override
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
     @Override
-    public String getOrganizerId() {
+    public int getOrganizerId() {
         return organizerId;
     }
     @Override
-    public void setOrganizerId(String organizerId) {
+    public void setOrganizerId(int organizerId) {
         this.organizerId = organizerId;
     }
     @Override

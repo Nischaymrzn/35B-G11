@@ -1,8 +1,8 @@
 package eventhub.model;
 
 interface  UserModelInterface {
-    public String getUserId();
-    public void setUserId(String userId);
+    public int getUserId();
+    public void setUserId(int userId);
     public String getUserName();
     public void setUserName(String userName);
     public String getUserEmail();
@@ -12,23 +12,23 @@ interface  UserModelInterface {
 }  
 
 public class UserModel implements UserModelInterface {
-    private String userId;
+    private int userId;
     private String userName;
     private String userEmail;
     private String phoneNumber;
 
-    public UserModel(String userId,String userName, String userEmail, String phoneNumber) {
+    public UserModel(int userId,String userName, String userEmail, String phoneNumber) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
         this.phoneNumber = phoneNumber;
     }
     @Override
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
     @Override
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
     @Override

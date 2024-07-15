@@ -1,10 +1,10 @@
 package eventhub.model;
 
 interface ReviewModelInterface {
-    public String getReviewId();
-    public void setReviewId(String reviewId);
-    public String getUserId();
-    public void setUserId(String userId);
+    public int getReviewId();
+    public void setReviewId(int reviewId);
+    public int getUserId();
+    public void setUserId(int userId);
     public String getReviewName();
     public void setReviewName(String reviewName);
     public String getReviewData();
@@ -12,27 +12,27 @@ interface ReviewModelInterface {
 }
 
 public class ReviewModel implements ReviewModelInterface {
-	private String reviewId;
-	private String userId;
+	private int reviewId;
+	private int userId;
     private String reviewName;
     private String reviewData;
 
-    public ReviewModel(String reviewId, String userId, String reviewName, String reviewData) {
+    public ReviewModel(int reviewId, int userId, String reviewName, String reviewData) {
     	this.reviewId = reviewId;
         this.userId = userId;
         this.reviewName = reviewName;
         this.reviewData = reviewData;
     }
     @Override
-    public String getReviewId() {
+    public int getReviewId() {
         return reviewId;
     }
     @Override
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
     @Override
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
     @Override
@@ -52,7 +52,7 @@ public class ReviewModel implements ReviewModelInterface {
         return reviewData;
     }
     @Override
-    public void setReviewId(String reviewId) {
+    public void setReviewId(int reviewId) {
         this.reviewId = reviewId;
     }
 

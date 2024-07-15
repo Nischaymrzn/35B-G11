@@ -1,29 +1,29 @@
 package eventhub.model;
 
 interface  TicketModelInterface {
-    public String getTicketId();
-    public void setTicketId(String ticketId);
-    public String getUserId();
-    public void setUserId(String userId);
-    public String getAdminId();
-    public void setAdminId(String adminId);
-    public String getEventId();
-    public void setEventId(String eventId);
-    public String getTicketRate();
-    public void setTicketRate(String ticketRate);
+    public int getTicketId();
+    public void setTicketId(int ticketId);
+    public int getUserId();
+    public void setUserId(int userId);
+    public int getAdminId();
+    public void setAdminId(int adminId);
+    public int getEventId();
+    public void setEventId(int eventId);
+    public int getTicketRate();
+    public void setTicketRate(int ticketRate);
     public String getEventDate();
     public void setEventDate(String eventDate);
 }
 
 public class TicketModel implements TicketModelInterface{
-    private String ticketId;
-    private String userId;
-    private String adminId;
-    private String eventId;
-    private String ticketRate;
+    private int ticketId;
+    private int userId;
+    private int adminId;
+    private int eventId;
+    private int ticketRate;
     private String eventDate;
 
-    public TicketModel(String ticketId, String userId, String adminId, String eventId, String ticketRate, String eventDate) {
+    public TicketModel(int ticketId, int userId, int adminId, int eventId, int ticketRate, String eventDate) {
         this.ticketId = ticketId;
         this.userId = userId;
         this.adminId = adminId;
@@ -32,43 +32,43 @@ public class TicketModel implements TicketModelInterface{
         this.eventDate = eventDate;
     }
     @Override
-    public String getTicketId() {
+    public int getTicketId() {
         return ticketId;
     }
     @Override
-    public void setTicketId(String ticketId) {
+    public void setTicketId(int ticketId) {
         this.ticketId = ticketId;
     }
     @Override
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
     @Override
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
     @Override
-    public String getAdminId() {
+    public int getAdminId() {
         return adminId;
     }
     @Override
-    public void setAdminId(String adminId) {
+    public void setAdminId(int adminId) {
         this.adminId = adminId;
     }
     @Override
-    public String getEventId() {
+    public int getEventId() {
         return eventId;
     }
     @Override
-    public void setEventId(String eventId) {
+    public void setEventId(int eventId) {
         this.eventId = eventId;
     }
     @Override
-    public String getTicketRate() {
+    public int getTicketRate() {
         return ticketRate;
     }
     @Override
-    public void setTicketRate(String ticketRate) {
+    public void setTicketRate(int ticketRate) {
         this.ticketRate = ticketRate;
     }
     @Override

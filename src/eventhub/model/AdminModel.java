@@ -1,8 +1,8 @@
 package eventhub.model;
 
 interface AdminModelInterface {
-    public String getAdminId();
-    public void setAdminId(String adminId);
+    public int getAdminId();
+    public void setAdminId(int adminId);
     public String getAdminName();
     public void setAdminName(String adminName);
     public String getAdminEmail();
@@ -12,24 +12,24 @@ interface AdminModelInterface {
 }
 
 public class AdminModel implements AdminModelInterface {
-    private String adminId;
+    private int adminId;
     private String adminName;
     private String adminEmail;
     private String adminPassword;
 
 
-    public AdminModel(String adminId, String adminName, String adminEmail, String adminPassword) {
+    public AdminModel(int adminId, String adminName, String adminEmail, String adminPassword) {
         this.adminId = adminId;
         this.adminName = adminName;
         this.adminEmail = adminEmail;
         this.adminPassword = adminPassword;
     }
     @Override
-    public String getAdminId() {
+    public int getAdminId() {
         return adminId;
     }
     @Override
-    public void setAdminId(String adminId) {
+    public void setAdminId(int adminId) {
         this.adminId = adminId;
     }
     @Override
