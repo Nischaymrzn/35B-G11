@@ -3,8 +3,6 @@ package eventhub.model;
 interface EventModelInterface {
     public int getEventId();
     public void setEventId(int eventId);
-    public int getUserId();
-    public void setUserId(int userId);
     public int getOrganizerId();
     public void setOrganizerId(int organizerId);
     public String getEventName();
@@ -15,20 +13,21 @@ interface EventModelInterface {
     public void setEventDate(String eventDate);
     public int getEventRate();
     public void setEventRate(int eventRate);
+    public String getImageUrl();
+    public void setImageUrl(String imageUrl);
 }
 
 public class EventModel implements EventModelInterface {
     private  int eventId;
-    private  int userId;
     private  int organizerId;
     private  String eventName;
     private  String eventType;
     private  String eventDate;
     private int eventRate;
+    private String imageUrl;
 
-    public EventModel(int eventId, int userId, int organizerId, String eventName, String eventType, String eventDate) {
+    public EventModel(int eventId, int organizerId, String eventName, String eventType, String eventDate, int eventRate, String imageUrl) {
         this.eventId = eventId;
-        this.userId = userId;
         this.organizerId = organizerId;
         this.eventName = eventName;
         this.eventType = eventType;
@@ -40,14 +39,6 @@ public class EventModel implements EventModelInterface {
     @Override
     public void setEventId(int eventId) {
         this.eventId = eventId;
-    }
-    @Override
-    public int getUserId() {
-        return userId;
-    }
-    @Override
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
     @Override
     public int getOrganizerId() {
@@ -89,5 +80,13 @@ public class EventModel implements EventModelInterface {
     @Override
     public void setEventRate(int eventRate) {
         this.eventRate = eventRate;
+    }
+    @Override
+    public String getImageUrl() {
+        return imageUrl;
+    }
+    @Override
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

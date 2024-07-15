@@ -24,4 +24,14 @@ public class CategoryModel  implements  CategoryModelInterface{
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
+
+    @Override
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+    @Override
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
 }
