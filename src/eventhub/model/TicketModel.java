@@ -11,8 +11,6 @@ interface  TicketModelInterface {
     public void setEventId(int eventId);
     public int getTicketRate();
     public void setTicketRate(int ticketRate);
-    public String getEventDate();
-    public void setEventDate(String eventDate);
 }
 
 public class TicketModel implements TicketModelInterface{
@@ -21,15 +19,13 @@ public class TicketModel implements TicketModelInterface{
     private int adminId;
     private int eventId;
     private int ticketRate;
-    private String eventDate;
 
-    public TicketModel(int ticketId, int userId, int adminId, int eventId, int ticketRate, String eventDate) {
+    public TicketModel(int ticketId, int userId, int adminId, int eventId, int ticketRate) {
         this.ticketId = ticketId;
         this.userId = userId;
         this.adminId = adminId;
         this.eventId = eventId;
         this.ticketRate = ticketRate;
-        this.eventDate = eventDate;
     }
     @Override
     public int getTicketId() {
@@ -71,14 +67,5 @@ public class TicketModel implements TicketModelInterface{
     public void setTicketRate(int ticketRate) {
         this.ticketRate = ticketRate;
     }
-    @Override
-    public String getEventDate() {
-        return eventDate;
-    }
-    @Override
-    public void setEventDate(String eventDate) {
-        this.eventDate = eventDate;
-    }
-
-    
+ 
 }

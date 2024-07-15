@@ -11,6 +11,8 @@ interface EventModelInterface {
     public void setEventName(String eventName);
     public String getEventType();
     public void setEventType(String eventType);
+    public String getEventDate();
+    public void setEventDate(String eventDate);
 }
 
 public class EventModel implements EventModelInterface {
@@ -19,8 +21,9 @@ public class EventModel implements EventModelInterface {
     private  int organizerId;
     private  String eventName;
     private  String eventType;
+    private  String eventDate;
 
-    public EventModel(int eventId, int userId, int organizerId, String eventName, String eventType) {
+    public EventModel(int eventId, int userId, int organizerId, String eventName, String eventType, String eventDate) {
         this.eventId = eventId;
         this.userId = userId;
         this.organizerId = organizerId;
@@ -68,4 +71,12 @@ public class EventModel implements EventModelInterface {
         this.eventType = eventType;
     }
 
+    @Override
+    public String getEventDate() {
+        return eventDate;
+    }
+    @Override
+    public void setEventDate(String eventDate) {
+        this.eventDate = eventDate;
+    }
 }
