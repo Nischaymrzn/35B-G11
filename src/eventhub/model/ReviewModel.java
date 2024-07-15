@@ -5,8 +5,6 @@ interface ReviewModelInterface {
     public void setReviewId(int reviewId);
     public int getUserId();
     public void setUserId(int userId);
-    public String getReviewName();
-    public void setReviewName(String reviewName);
     public String getReviewData();
     public void setReviewData(String reviewData);
 }
@@ -14,13 +12,11 @@ interface ReviewModelInterface {
 public class ReviewModel implements ReviewModelInterface {
 	private int reviewId;
 	private int userId;
-    private String reviewName;
     private String reviewData;
 
-    public ReviewModel(int reviewId, int userId, String reviewName, String reviewData) {
+    public ReviewModel(int reviewId, int userId, String reviewData) {
     	this.reviewId = reviewId;
         this.userId = userId;
-        this.reviewName = reviewName;
         this.reviewData = reviewData;
     }
     @Override
@@ -34,14 +30,6 @@ public class ReviewModel implements ReviewModelInterface {
     @Override
     public int getUserId() {
         return userId;
-    }
-    @Override
-    public void setReviewName(String reviewName) {
-        this.reviewName = reviewName;
-    }
-    @Override
-    public String getReviewName() {
-        return reviewName;
     }
     @Override
     public void setReviewData(String reviewData) {
