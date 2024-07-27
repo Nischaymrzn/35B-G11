@@ -13,11 +13,11 @@ public class ReviewOperations {
 
     public void addReview(ReviewModel review) {
         Connection conn = db.openConnection();
-        String sql = "INSERT INTO reviews (reviewId,userId,reviewData) VALUES (?,?,?)";
+        String sql = "INSERT INTO review (reviewId,userId,reviewData) VALUES (?,?,?)";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, review.getReviewId());
-            pstmt.setInt(1, review.getUserId());
-            pstmt.setString(1, review.getReviewData());
+            pstmt.setInt(2, review.getUserId());
+            pstmt.setString(3, review.getReviewData());
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ReviewOperations.class.getName()).log(Level.SEVERE, null, ex);
@@ -28,7 +28,7 @@ public class ReviewOperations {
 
     public void deleteReview(int reviewId) {
         Connection conn = db.openConnection();
-        String sql = "DELETE FROM reviews WHERE reviewId = ?";
+        String sql = "DELETE FROM review WHERE reviewId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, reviewId);
             pstmt.executeUpdate();

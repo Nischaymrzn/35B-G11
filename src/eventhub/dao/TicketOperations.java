@@ -12,13 +12,13 @@ public class TicketOperations {
 
     public void addTicket(TicketModel ticket) {
         Connection conn = db.openConnection();
-        String sql = "INSERT INTO tickets (ticketId,userId,eventId,organizerId,amount) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO ticket (ticketId,userId,eventId,organizerId,Quantity) VALUES (?,?,?,?,?)";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, ticket.getTicketId());
             pstmt.setInt(2, ticket.getUserId());
             pstmt.setInt(3, ticket.getEventId());
-            pstmt.setInt(3, ticket.getOrganizerId());
-            pstmt.setInt(4, ticket.getTicketAmount());
+            pstmt.setInt(4, ticket.getOrganizerId());
+            pstmt.setInt(5, ticket.getTicketAmount());
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(TicketOperations.class.getName()).log(Level.SEVERE, null, ex);
@@ -29,7 +29,7 @@ public class TicketOperations {
 
     public void deleteTicket(int ticketId) {
         Connection conn = db.openConnection();
-        String sql = "DELETE FROM tickets WHERE ticketId = ?";
+        String sql = "DELETE FROM ticket WHERE ticketId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, ticketId);
             pstmt.executeUpdate();
@@ -43,7 +43,7 @@ public class TicketOperations {
     public ArrayList<TicketModel> getAllTicket(int ticketId) {
         Connection conn = db.openConnection();
         ArrayList<TicketModel> data = new ArrayList<>();
-        String sql = "SELECT * FROM tickets";
+        String sql = "SELECT * FROM ticket";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             ResultSet result = pstmt.executeQuery();
             while (result.next()) {

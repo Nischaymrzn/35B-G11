@@ -12,7 +12,7 @@ public class CategoryOperations {
 
     public void addCategory(CategoryModel category) {
         Connection conn = db.openConnection();
-        String sql = "INSERT INTO categories (categoryId,categoryName) VALUES (?,?)";
+        String sql = "INSERT INTO category (categoryId,categoryName) VALUES (?,?)";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, category.getCategoryId());
             pstmt.setString(1, category.getCategoryName());
@@ -26,7 +26,7 @@ public class CategoryOperations {
 
     public void updateCategory(CategoryModel category) {
         Connection conn = db.openConnection();
-        String sql = "UPDATE categories SET categoryName = ? WHERE categoryId = ?";
+        String sql = "UPDATE category SET categoryName = ? WHERE categoryId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, category.getCategoryName());
             pstmt.setInt(2, category.getCategoryId());
@@ -40,7 +40,7 @@ public class CategoryOperations {
 
     public void deleteCategory(int categoryId) {
         Connection conn = db.openConnection();
-        String sql = "DELETE FROM categories WHERE categoryId = ?";
+        String sql = "DELETE FROM category WHERE categoryId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, categoryId);
             pstmt.executeUpdate();
@@ -53,7 +53,7 @@ public class CategoryOperations {
 
     public CategoryModel getCategory(int categoryId) {
         Connection conn = db.openConnection();
-        String sql = "SELECT * FROM categories WHERE categoryId = ?";
+        String sql = "SELECT * FROM category WHERE categoryId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, categoryId);
             ResultSet result = pstmt.executeQuery();
