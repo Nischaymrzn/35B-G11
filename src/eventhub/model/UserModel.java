@@ -11,6 +11,8 @@ interface  UserModelInterface {
     public void setUserPassword(String userPassword);
     public String getPhoneNumber();
     public void setPhoneNumber(String phoneNumber);
+    public String getUserRole();
+    public void setUserRole(String userRole);
 }  
 
 public class UserModel implements UserModelInterface {
@@ -19,9 +21,9 @@ public class UserModel implements UserModelInterface {
     private String userEmail;
     private String userPassword;
     private String phoneNumber;
+    private String userRole;
 
-    public UserModel(int userId,String userName, String userEmail,String userPassword, String phoneNumber) {
-        this.userId = userId;
+    public UserModel(String userName, String userEmail,String userPassword, String phoneNumber) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
@@ -66,5 +68,13 @@ public class UserModel implements UserModelInterface {
     @Override
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+    @Override
+    public String getUserRole() {
+        return userRole;
+    }
+    @Override
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
     }
 }

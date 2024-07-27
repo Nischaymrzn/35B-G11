@@ -14,8 +14,7 @@ public class ReviewModel implements ReviewModelInterface {
 	private int userId;
     private String reviewData;
 
-    public ReviewModel(int reviewId, int userId, String reviewData) {
-    	this.reviewId = reviewId;
+    public ReviewModel(int userId, String reviewData) {
         this.userId = userId;
         this.reviewData = reviewData;
     }

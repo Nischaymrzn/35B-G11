@@ -1,8 +1,8 @@
 package eventhub.model;
 
 interface LoginModelInterface {
-    public String getemail();
-    public void setemail(String email);
+    public String getEmail();
+    public void setEmail(String email);
     public String getPassword();
     public void setPassword(String password);
 }
@@ -16,11 +16,11 @@ public class LoginModel implements LoginModelInterface {
         this.password = password;
     }
     @Override
-    public String getemail() {
+    public String getEmail() {
         return email;
     }
     @Override
-    public void setemail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
     @Override
