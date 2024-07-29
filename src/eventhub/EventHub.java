@@ -4,7 +4,7 @@
  */
 package eventhub;
 
-import eventhub.view.user.ticketBookingPage;
+import eventhub.view.Signup
 
 public class EventHub {
 
@@ -12,7 +12,7 @@ public class EventHub {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ticketBookingPage ss= new ticketBookingPage();
+        Signup ss= new Signup();
         ss.setVisible(true);
     }
     
