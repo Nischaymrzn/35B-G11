@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <!-- Keep only the files you want to remain open -->
             <file>file:/E:/college/sem2/sem2%20projects/35B-G11/src/eventhub/view/organizer/Organizers.java</file>
@@ -12,5 +13,8 @@
             <file>file:/C:/Users/hp/Documents/35B-G11/src/eventhub/view/admin/userEdit.java</file>
             <file>file:/C:/Users/hp/Documents/35B-G11/src/eventhub/EventHub.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 78cbfec (tick)
     </open-files>
 </project-private>
