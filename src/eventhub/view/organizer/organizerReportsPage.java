@@ -5,6 +5,7 @@
 package eventhub.view.organizer;
 import eventhub.view.organizer.organizerEventsPage;
 import eventhub.view.organizer.organizerDashboard;
+import eventhub.view.login;
 
 /**
  *
@@ -258,6 +259,9 @@ public class organizerReportsPage extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+                this.dispose();
+        login newPage=new login();
+        newPage.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

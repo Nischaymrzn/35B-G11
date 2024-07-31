@@ -4,7 +4,7 @@
  */
 package eventhub;
 
-import eventhub.view.organizer.organizerDashboard;
+import eventhub.view.admin.dashboard;
 
 public class EventHub {
 
@@ -12,7 +12,7 @@ public class EventHub {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        organizerDashboard ss= new organizerDashboard();
+        dashboard ss= new dashboard();
         ss.setVisible(true);
     }
     
