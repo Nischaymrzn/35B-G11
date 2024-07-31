@@ -6,6 +6,7 @@ package eventhub.view.admin;
 import eventhub.view.admin.dashboard;
 import eventhub.view.admin.organizerEdit;
 import eventhub.view.admin.userEdit;
+import eventhub.view.login;
 
 /**
  *
@@ -173,7 +174,7 @@ public class eventListPage extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Dashboard");
+        jLabel1.setText("Events");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -239,6 +240,9 @@ public class eventListPage extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+                this.dispose();
+        login newPage=new login();
+        newPage.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
