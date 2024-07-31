@@ -4,7 +4,7 @@
  */
 package eventhub;
 
-import eventhub.view.admin.dashboard;
+import eventhub.view.user.homePage;
 
 public class EventHub {
 
@@ -12,7 +12,7 @@ public class EventHub {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        dashboard ss= new dashboard();
+        homePage ss= new homePage();
         ss.setVisible(true);
     }
     
