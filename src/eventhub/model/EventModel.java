@@ -8,13 +8,17 @@ interface EventModelInterface {
     public String getEventName();
     public void setEventName(String eventName);
     public String getEventType();
-    public void setEventType(String eventType);
+    public void setEventType(int categoryId);
     public String getEventDate();
     public void setEventDate(String eventDate);
     public int getEventRate();
     public void setEventRate(int eventRate);
     public String getImageUrl();
     public void setImageUrl(String imageUrl);
+    public String getEventDescription();
+    public void setEventDescription(String eventDescription);
+    public String getEventTime();
+    public void setEventTime(String eventTime);
 }
 
 public class EventModel implements EventModelInterface {
@@ -23,14 +27,15 @@ public class EventModel implements EventModelInterface {
     private  String eventName;
     private  String eventType;
     private  String eventDate;
+    private String eventTime;
+    private String eventDescription;
     private int eventRate;
     private String imageUrl;
 
-    public EventModel(int eventId, int organizerId, String eventName, String eventType, String eventDate, int eventRate, String imageUrl) {
+    public EventModel(int eventId, int organizerId, String eventName, int categoryId, String eventDate, int eventRate) {
         this.eventId = eventId;
         this.organizerId = organizerId;
         this.eventName = eventName;
-        this.eventType = eventType;
     }
     @Override
     public int getEventId() {
@@ -61,8 +66,9 @@ public class EventModel implements EventModelInterface {
         return eventType;
     }
     @Override
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
+    // This method is incomplete
+    public void setEventType(int categoryId) {
+        
     }
 
     @Override
@@ -88,5 +94,21 @@ public class EventModel implements EventModelInterface {
     @Override
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+    @Override
+    public String getEventDescription() {
+        return eventDescription;
+    }
+    @Override
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
+    }
+    @Override
+    public String getEventTime() {
+        return eventTime;
+    }
+    @Override
+    public void setEventTime(String eventTime) {
+        this.eventTime = eventTime;
     }
 }
