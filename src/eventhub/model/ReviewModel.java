@@ -1,47 +1,45 @@
 package eventhub.model;
 
-public class ReviewModel {
-	private String reviewId;
-	private String userId;
-    private String reviewName;
+interface ReviewModelInterface {
+    public int getReviewId();
+    public void setReviewId(int reviewId);
+    public int getUserId();
+    public void setUserId(int userId);
+    public String getReviewData();
+    public void setReviewData(String reviewData);
+}
+
+public class ReviewModel implements ReviewModelInterface {
+	private int reviewId;
+	private int userId;
     private String reviewData;
 
-    public ReviewModel(String reviewId, String userId, String reviewName, String reviewData) {
-    	this.reviewId = reviewId;
+    public ReviewModel(int userId, String reviewData) {
         this.userId = userId;
-        this.reviewName = reviewName;
         this.reviewData = reviewData;
     }
-
-    public String getReviewId() {
+    @Override
+    public int getReviewId() {
         return reviewId;
     }
-
-    public void setUserId(String userId) {
+    @Override
+    public void setUserId(int userId) {
         this.userId = userId;
     }
-
-    public String getUserId() {
+    @Override
+    public int getUserId() {
         return userId;
     }
-
-    public void setReviewName(String reviewName) {
-        this.reviewName = reviewName;
-    }
-
-    public String getReviewName() {
-        return reviewName;
-    }
-
+    @Override
     public void setReviewData(String reviewData) {
         this.reviewData = reviewData;
     }
-
+    @Override
     public String getReviewData() {
         return reviewData;
     }
-
-    public void setReviewId(String reviewId) {
+    @Override
+    public void setReviewId(int reviewId) {
         this.reviewId = reviewId;
     }
 

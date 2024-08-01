@@ -5,8 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DatabaseConnection implements Database{
-    // private String url = "jdbc:mysql://127.0.0.1:3306/?user=root&password=admin123&useUnicode=true&characterEncoding=UTF-8";
-   
+
 
     @Override
     public Connection openConnection() {
@@ -14,22 +13,23 @@ public class DatabaseConnection implements Database{
          String username = "root";
          String password= "admin123";
          Connection connection;
+         int flag = 0;
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);
+            flag++;
             if (connection != null) {
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("SHOW DATABASES LIKE 'eventhub'");
-                if (resultSet.next()) {
-                    System.out.println("Database 'eventhub' exists.");
-                } else {
-                    statement.execute("CREATE DATABASE IF NOT EXISTS eventhub");
-                }
+                System.out.println("Connected to the database");
                 // Rest of the code...
             } else {
                 // Handle the case when connection is null
-                openConnection();
+                if(flag < 3){
+                    openConnection();
+                } else {
+                    System.out.println("Connection failed");
+                    
+                }
             }
             return connection;
 

@@ -1,69 +1,71 @@
 package eventhub.model;
 
-public class TicketModel {
-    private String ticketId;
-    private String userId;
-    private String adminId;
-    private String eventId;
-    private String ticketRate;
-    private String eventDate;
+interface  TicketModelInterface {
+    public int getTicketId();
+    public void setTicketId(int ticketId);
+    public int getUserId();
+    public void setUserId(int userId);
+    public int getOrganizerId();
+    public void setOrganizerId(int OrganizerId);
+    public int getEventId();
+    public void setEventId(int eventId);
+    public int getTicketAmount();
+    public void setTicketAmount(int ticketAmount);
+}
 
-    public TicketModel(String ticketId, String userId, String adminId, String eventId, String ticketRate, String eventDate) {
+public class TicketModel implements TicketModelInterface{
+    private int ticketId;
+    private int userId;
+    private int organizerId;
+    private int eventId;
+    private int ticketAmount;
+  
+
+    public TicketModel(int ticketId, int userId, int organizerId, int eventId, int ticketRate) {
         this.ticketId = ticketId;
         this.userId = userId;
-        this.adminId = adminId;
+        this.organizerId = organizerId;
         this.eventId = eventId;
-        this.ticketRate = ticketRate;
-        this.eventDate = eventDate;
+       
     }
-
-    public String getTicketId() {
+    @Override
+    public int getTicketId() {
         return ticketId;
     }
-
-    public void setTicketId(String ticketId) {
+    @Override
+    public void setTicketId(int ticketId) {
         this.ticketId = ticketId;
     }
-
-    public String getUserId() {
+    @Override
+    public int getUserId() {
         return userId;
     }
-
-    public void setUserId(String userId) {
+    @Override
+    public void setUserId(int userId) {
         this.userId = userId;
     }
-
-    public String getAdminId() {
-        return adminId;
+    @Override
+    public int getOrganizerId() {
+        return organizerId;
     }
-
-    public void setAdminId(String adminId) {
-        this.adminId = adminId;
+    @Override
+    public void setOrganizerId(int organizerId) {
+        this.organizerId = organizerId;
     }
-
-    public String getEventId() {
+    @Override
+    public int getEventId() {
         return eventId;
     }
-
-    public void setEventId(String eventId) {
+    @Override
+    public void setEventId(int eventId) {
         this.eventId = eventId;
     }
-
-    public String getTicketRate() {
-        return ticketRate;
+    @Override
+    public int getTicketAmount() {
+        return ticketAmount;
     }
-
-    public void setTicketRate(String ticketRate) {
-        this.ticketRate = ticketRate;
+    @Override
+    public void setTicketAmount(int ticketAmount) {
+        this.ticketAmount = ticketAmount;
     }
-
-    public String getEventDate() {
-        return eventDate;
-    }
-
-    public void setEventDate(String eventDate) {
-        this.eventDate = eventDate;
-    }
-
-    
 }
