@@ -5,14 +5,15 @@
 package eventhub;
 
 import eventhub.view.user.homePage;
-
+import eventhub.view.organizer.formfillup;
 public class EventHub {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        homePage ss= new homePage();
+        formfillup ss= new formfillup();
+        
         ss.setVisible(true);
     }
     
