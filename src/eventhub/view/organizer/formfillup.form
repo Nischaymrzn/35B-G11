@@ -253,6 +253,7 @@
                                   <EmptySpace pref="960" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+<<<<<<< HEAD
                           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
@@ -260,6 +261,8 @@
                                   <EmptySpace pref="842" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+=======
+>>>>>>> 5b4ae7d2f9a60681a9e1d7a0fed397fe20692378
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -324,6 +327,7 @@
                                   <EmptySpace pref="1606" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+<<<<<<< HEAD
                           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="733" max="-2" attributes="0"/>
@@ -331,6 +335,8 @@
                                   <EmptySpace pref="1044" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+=======
+>>>>>>> 5b4ae7d2f9a60681a9e1d7a0fed397fe20692378
                       </Group>
                     </DimensionLayout>
                   </Layout>

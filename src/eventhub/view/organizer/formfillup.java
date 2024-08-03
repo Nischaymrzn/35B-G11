@@ -37,10 +37,22 @@ public class formfillup extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+<<<<<<< HEAD
         jTextField13 = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
         jTextField16 = new javax.swing.JTextField();
+=======
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jTextField12 = new javax.swing.JTextField();
+>>>>>>> 5b4ae7d2f9a60681a9e1d7a0fed397fe20692378
         jButton5 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -403,12 +415,16 @@ public class formfillup extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(96, 96, 96)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                     .addContainerGap(960, Short.MAX_VALUE)))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(246, 246, 246)
                     .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(842, Short.MAX_VALUE)))
+=======
+                    .addContainerGap(861, Short.MAX_VALUE)))
+>>>>>>> 5b4ae7d2f9a60681a9e1d7a0fed397fe20692378
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,12 +477,16 @@ public class formfillup extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(189, 189, 189)
                     .addComponent(jLabel3)
+<<<<<<< HEAD
                     .addContainerGap(1606, Short.MAX_VALUE)))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(733, 733, 733)
                     .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(1044, Short.MAX_VALUE)))
+=======
+                    .addContainerGap(1373, Short.MAX_VALUE)))
+>>>>>>> 5b4ae7d2f9a60681a9e1d7a0fed397fe20692378
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
