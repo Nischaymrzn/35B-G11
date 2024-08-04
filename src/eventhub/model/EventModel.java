@@ -8,7 +8,7 @@ interface EventModelInterface {
     public String getEventName();
     public void setEventName(String eventName);
     public String getEventType();
-    public void setEventType(int categoryId);
+    public void setEventType(String eventType);
     public String getEventDate();
     public void setEventDate(String eventDate);
     public int getEventRate();
@@ -68,10 +68,9 @@ public class EventModel implements EventModelInterface {
     }
     @Override
     // This method is incomplete
-    public void setEventType(int categoryId) {
-        
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
     }
-
     @Override
     public String getEventDate() {
         return eventDate;
