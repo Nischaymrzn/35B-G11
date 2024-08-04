@@ -24,7 +24,7 @@ public class Auth {
                     result.getString("userPassword")
                 );
                 user.setUserId(result.getInt("userId"));
-                user.setUserRole(result.getString("Role"));
+                user.setUserRole(result.getString("userRole"));
                 user.setUserPassword(null);
                 return user;
             }

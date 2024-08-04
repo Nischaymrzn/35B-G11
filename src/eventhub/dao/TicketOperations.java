@@ -12,7 +12,7 @@ public class TicketOperations {
 
     public void addTicket(TicketModel ticket) {
         Connection conn = db.openConnection();
-        String sql = "INSERT INTO ticket (ticketId,userId,eventId,organizerId,Quantity) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO ticket (ticketId,userId,eventId,organizerId,ticketAmount) VALUES (?,?,?,?,?)";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, ticket.getTicketId());
             pstmt.setInt(2, ticket.getUserId());
@@ -52,7 +52,7 @@ public class TicketOperations {
                         result.getInt("userId"),
                         result.getInt("organizerId"),
                         result.getInt("eventId"),
-                        result.getInt("amount")
+                        result.getInt("ticketAmount")
                 );
                 data.add(ticket);
             }

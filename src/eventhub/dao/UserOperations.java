@@ -14,12 +14,12 @@ public class UserOperations {
 
     public String checkRole(UserModel user){
         Connection conn = db.openConnection();
-        String sql = "SELECT Role FROM users WHERE userEmail = ?";
+        String sql = "SELECT userRole FROM users WHERE userEmail = ?";
         try(PreparedStatement pstmt = conn.prepareStatement(sql)){
             pstmt.setString(1, user.getUserEmail());
             ResultSet result = pstmt.executeQuery();
             if(result.next()){
-                return result.getString("Role");
+                return result.getString("userRole");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Auth.class.getName()).log(Level.SEVERE, null, ex);
@@ -41,7 +41,7 @@ public class UserOperations {
                     result.getString("userEmail"),
                     result.getString("userPassword")
                 );
-                user.setUserRole(result.getString("Role"));
+                user.setUserRole(result.getString("userRole"));
                 user.setUserPassword(null);
                 return user;
             }
@@ -55,7 +55,7 @@ public class UserOperations {
 
     public ArrayList<UserModel> getAllOrganizers(){
         Connection conn = db.openConnection();
-        String sql = "SELECT * FROM users WHERE Role = 'organizer'";
+        String sql = "SELECT * FROM users WHERE userRole = 'organizer'";
         ArrayList<UserModel> organizers = new ArrayList<>();
         try(PreparedStatement pstmt = conn.prepareStatement(sql)){
             ResultSet result = pstmt.executeQuery();
@@ -66,7 +66,7 @@ public class UserOperations {
                     result.getString("userPassword")
                 );
                 user.setUserId(result.getInt("userId"));
-                user.setUserRole(result.getString("Role"));
+                user.setUserRole(result.getString("userRole"));
                 user.setUserPassword(null);
                 organizers.add(user);
             }
