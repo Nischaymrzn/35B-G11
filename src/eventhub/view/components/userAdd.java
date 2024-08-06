@@ -4,6 +4,8 @@
  */
 package eventhub.view.components;
 
+import eventhub.controller.UserAddController;
+
 /**
  *
  * @author hp
@@ -19,6 +21,7 @@ public class userAdd extends javax.swing.JFrame {
         setSize(1000, 800);
         setLocationRelativeTo(null);
         setResizable(false);
+        new UserAddController(this);
     }
 
     /**
@@ -66,11 +69,11 @@ public class userAdd extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Location");
+        jLabel13.setText("Password");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Password");
+        jLabel14.setText("Confirm Password");
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -187,8 +190,8 @@ public class userAdd extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addGap(18, 18, 18)
                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -236,7 +239,29 @@ public class userAdd extends javax.swing.JFrame {
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
+     public javax.swing.JTextField getFullName() {
+    return jTextField6; // Assuming this is the full name field
+}
 
+public javax.swing.JTextField getPhoneNumber() {
+    return jTextField2; // Assuming this is the phone number field
+}
+
+public javax.swing.JTextField getEmailAddress() {
+    return jTextField3; // Assuming this is the email address field
+}
+
+public javax.swing.JTextField getPassword() {
+    return jTextField4; // Assuming this is the password field
+}
+
+public javax.swing.JTextField getConfirmPassword() {
+    return jTextField5; // Assuming this is the confirm password field
+}
+
+public javax.swing.JButton getAddUserButton() {
+    return jButton7;
+}
     /**
      * @param args the command line arguments
      */
