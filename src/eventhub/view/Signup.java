@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package eventhub.view;
+import eventhub.view.login;
 
 /**
  *
@@ -33,7 +34,6 @@ public class Signup extends javax.swing.JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jLabel6 = new javax.swing.JLabel();
-        registerField = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -46,6 +46,7 @@ public class Signup extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
+        registerField = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,15 +58,9 @@ public class Signup extends javax.swing.JFrame {
         jLayeredPane2.setOpaque(true);
 
         jLabel6.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setText("Already have an account?");
-
-        registerField.setBackground(new java.awt.Color(51, 51, 51));
-        registerField.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        registerField.setForeground(new java.awt.Color(255, 51, 51));
-        registerField.setText("Login Now");
-        registerField.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(242, 242, 242));
@@ -148,8 +143,18 @@ public class Signup extends javax.swing.JFrame {
             }
         });
 
+        registerField.setBackground(new java.awt.Color(51, 51, 51));
+        registerField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        registerField.setForeground(new java.awt.Color(255, 51, 51));
+        registerField.setText("Login Here");
+        registerField.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registerField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerFieldMouseClicked(evt);
+            }
+        });
+
         jLayeredPane2.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(registerField, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -162,6 +167,7 @@ public class Signup extends javax.swing.JFrame {
         jLayeredPane2.setLayer(jTextField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jTextField6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(registerField, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
@@ -170,13 +176,13 @@ public class Signup extends javax.swing.JFrame {
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(registerField))
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addGap(254, 254, 254)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(registerField))
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -191,7 +197,7 @@ public class Signup extends javax.swing.JFrame {
                             .addComponent(jTextField3)
                             .addComponent(jTextField4)
                             .addComponent(jTextField6))))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,20 +217,22 @@ public class Signup extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addComponent(jLabel14)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registerField)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15))
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel14)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80))
+                    .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(registerField)))
+                .addGap(69, 69, 69))
         );
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
@@ -244,16 +252,16 @@ public class Signup extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(331, 331, 331)
+                        .addGap(334, 334, 334)
                         .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(401, Short.MAX_VALUE))
+                .addContainerGap(374, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
+                .addGap(48, 48, 48)
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(113, Short.MAX_VALUE))
         );
@@ -295,6 +303,35 @@ public class Signup extends javax.swing.JFrame {
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
+
+    public javax.swing.JTextField getFullName() {
+    return jTextField6; // Assuming this is the full name field
+}
+
+public javax.swing.JTextField getPhoneNumber() {
+    return jTextField2; // Assuming this is the phone number field
+}
+
+public javax.swing.JTextField getEmailAddress() {
+    return jTextField3; // Assuming this is the email address field
+}
+
+public javax.swing.JTextField getPassword() {
+    return jTextField4; // Assuming this is the password field
+}
+
+public javax.swing.JTextField getConfirmPassword() {
+    return jTextField5; // Assuming this is the confirm password field
+}
+
+public javax.swing.JButton getRegisterButton() {
+    return jButton7;
+}
+    private void registerFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerFieldMouseClicked
+        this.dispose();
+        login su=new login();
+        su.setVisible(true);
+    }//GEN-LAST:event_registerFieldMouseClicked
 
     /**
      * @param args the command line arguments
