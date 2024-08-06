@@ -4,24 +4,30 @@
  */
 package eventhub.view.organizer;
 import eventhub.view.organizer.organizerEventsPage;
-import eventhub.view.organizer.organizerReportsPage;
+import eventhub.view.organizer.organizerMyCustomerPage;
 import eventhub.view.login;
+import eventhub.model.UserModel;
 
 /**
  *
  * @author hp
  */
 public class organizerDashboard extends javax.swing.JFrame {
+    private UserModel user;
 
     /**
      * Creates new form organizerDashboard
      */
-    public organizerDashboard() {
+    public organizerDashboard(UserModel user) {
         initComponents();
         setTitle("Organizer Dashboard - EventHub");
         setSize(1500, 1020);
         setLocationRelativeTo(null);
         setResizable(false);
+        this.user = user;
+    }
+      public int getOrganizerId() {
+        return user.getUserId();
     }
 
     /**
@@ -69,6 +75,11 @@ public class organizerDashboard extends javax.swing.JFrame {
         jButton4.setToolTipText("");
         jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.setFocusPainted(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -77,9 +88,9 @@ public class organizerDashboard extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 857, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 884, Short.MAX_VALUE)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(491, 491, 491))
+                .addGap(464, 464, 464))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +99,7 @@ public class organizerDashboard extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(28, 28, 36));
@@ -321,9 +332,7 @@ public class organizerDashboard extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,15 +352,13 @@ public class organizerDashboard extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        organizerEventsPage newPage=new organizerEventsPage();
+        organizerEventsPage newPage=new organizerEventsPage(user);
         newPage.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        organizerReportsPage newPage=new organizerReportsPage();
-        newPage.setVisible(true);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -366,10 +373,25 @@ public class organizerDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:]
+        this.dispose();
+        organizerMyCustomerPage newPage=new organizerMyCustomerPage(user);
+        newPage.setVisible(true);
         
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        int organizerId=getOrganizerId();
+        formfillup newPage=new formfillup(organizerId);
+        newPage.setVisible(true);
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+// private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+//        // TODO add your handling code here:
+
+//        
+//    }  
     /**
      * @param args the command line arguments
      */
@@ -400,7 +422,9 @@ public class organizerDashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new organizerDashboard().setVisible(true);
+                UserModel user=new UserModel();
+                new organizerDashboard(user).setVisible(true);
+                
             }
         });
     }
