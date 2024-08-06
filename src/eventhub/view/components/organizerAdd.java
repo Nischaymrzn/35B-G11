@@ -4,6 +4,12 @@
  */
 package eventhub.view.components;
 
+import com.sun.jdi.connect.spi.Connection;
+import eventhub.controller.OrganizerAddController;
+import eventhub.database.DatabaseConnection;
+import eventhub.model.UserModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author hp
@@ -214,6 +220,22 @@ public class organizerAdd extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        
+        String userName = jTextField6.getText();
+    String phoneNumber = jTextField2.getText();
+    String email = jTextField3.getText();
+    String location = jTextField4.getText();
+    String password = jTextField5.getText();
+    
+        UserModel userModel = new UserModel(userName, email, password, "organizer"); // Set the role to Organizer
+    OrganizerAddController organizerController = new OrganizerAddController();
+
+    boolean success = organizerController.addOrganizer(userModel);
+    if (success) {
+        JOptionPane.showMessageDialog(this, "Organizer added successfully!");
+    } else {
+        JOptionPane.showMessageDialog(this, "Failed to add organizer.");
+    }
         this.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 
