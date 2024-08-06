@@ -11,7 +11,7 @@ public class DatabaseConnection implements Database{
     public Connection openConnection() {
          String url = "jdbc:mysql://127.0.0.1:3306/eventhub";
          String username = "root";
-         String password= "admin123";
+         String password= "password";
          Connection connection;
          int flag = 0;
         

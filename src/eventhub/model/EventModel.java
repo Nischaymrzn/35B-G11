@@ -13,8 +13,8 @@ interface EventModelInterface {
     public void setEventDate(String eventDate);
     public int getEventRate();
     public void setEventRate(int eventRate);
-    public String getImageUrl();
-    public void setImageUrl(String imageUrl);
+    public byte[] getImage();
+    public void setImage(byte[] image);
     public String getEventDescription();
     public void setEventDescription(String eventDescription);
     public String getEventTime();
@@ -22,25 +22,32 @@ interface EventModelInterface {
 }
 
 public class EventModel implements EventModelInterface {
-    private  int eventId;
-    private  int organizerId;
-    private  String eventName;
-    private  String eventType;
-    private  String eventDate;
+    private int eventId;
+    private int organizerId;
+    private String eventName;
+    private String eventType;
+    private String eventDate;
     private String eventTime;
     private String eventDescription;
     private int eventRate;
-    private String imageUrl;
+    private byte[] image;
 
-    public EventModel(int eventId, int organizerId, String eventName, int categoryId, String eventDate, int eventRate) {
-        this.eventId = eventId;
+    public EventModel(int organizerId, String eventName, String eventType, String eventDate, String eventTime, String eventDescription, int eventRate, byte[] image) {
         this.organizerId = organizerId;
         this.eventName = eventName;
+        this.eventType = eventType;
+        this.eventDate = eventDate;
+        this.eventTime = eventTime;
+        this.eventDescription = eventDescription;
+        this.eventRate = eventRate;
+        this.image = image;
     }
+
     @Override
     public int getEventId() {
         return eventId;
     }
+
     @Override
     public void setEventId(int eventId) {
         this.eventId = eventId;
@@ -50,24 +57,28 @@ public class EventModel implements EventModelInterface {
     public int getOrganizerId() {
         return organizerId;
     }
+
     @Override
     public void setOrganizerId(int organizerId) {
         this.organizerId = organizerId;
     }
+
     @Override
     public String getEventName() {
         return eventName;
     }
+
     @Override
     public void setEventName(String eventName) {
         this.eventName = eventName;
     }
+
     @Override
     public String getEventType() {
         return eventType;
     }
+
     @Override
-    // This method is incomplete
     public void setEventType(String eventType) {
         this.eventType = eventType;
     }
@@ -75,38 +86,47 @@ public class EventModel implements EventModelInterface {
     public String getEventDate() {
         return eventDate;
     }
+
     @Override
     public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
+
     @Override
     public int getEventRate() {
         return eventRate;
     }
+
     @Override
     public void setEventRate(int eventRate) {
         this.eventRate = eventRate;
     }
+
     @Override
-    public String getImageUrl() {
-        return imageUrl;
+    public byte[] getImage() {
+        return image;
     }
+
     @Override
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImage(byte[] image) {
+        this.image = image;
     }
+
     @Override
     public String getEventDescription() {
         return eventDescription;
     }
+
     @Override
     public void setEventDescription(String eventDescription) {
         this.eventDescription = eventDescription;
     }
+
     @Override
     public String getEventTime() {
         return eventTime;
     }
+
     @Override
     public void setEventTime(String eventTime) {
         this.eventTime = eventTime;

@@ -19,11 +19,20 @@ public class UserModel implements UserModelInterface {
     private String userEmail;
     private String userPassword;
     private String userRole;
-
+    public UserModel(){
+        
+    }
     public UserModel(String userName, String userEmail,String userPassword) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
+    }
+    // New constructor with user role
+    public UserModel(String userName, String userEmail, String userPassword, String userRole) {
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        this.userRole = userRole;
     }
     @Override
     public int getUserId() {

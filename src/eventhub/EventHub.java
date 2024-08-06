@@ -4,17 +4,19 @@
  */
 package eventhub;
 
+import eventhub.controller.SignupController;
 import eventhub.view.user.homePage;
-import eventhub.view.organizer.formfillup;
+import eventhub.view.Signup;
 public class EventHub {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        formfillup ss= new formfillup();
-        
-        ss.setVisible(true);
+                Signup signup = new Signup();
+                        SignupController controller = new SignupController(signup);
+
+        signup.setVisible(true);
     }
     
 }

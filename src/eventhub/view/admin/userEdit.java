@@ -6,6 +6,7 @@ package eventhub.view.admin;
 import eventhub.view.admin.dashboard;
 import eventhub.view.admin.eventListPage;
 import eventhub.view.admin.organizerEdit;
+import eventhub.view.components.userAdd;
 import eventhub.view.login;
 
 /**
@@ -289,6 +290,8 @@ public class userEdit extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        userAdd newPage=new userAdd();
+        newPage.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
