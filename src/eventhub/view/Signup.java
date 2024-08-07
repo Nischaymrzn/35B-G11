@@ -43,10 +43,10 @@ public class Signup extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         registerField = new javax.swing.JLabel();
+        jPasswordField2 = new javax.swing.JPasswordField();
+        jPasswordField3 = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,6 +99,7 @@ public class Signup extends javax.swing.JFrame {
         });
 
         jTextField2.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +109,7 @@ public class Signup extends javax.swing.JFrame {
         });
 
         jTextField3.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(255, 255, 255));
         jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -116,25 +118,8 @@ public class Signup extends javax.swing.JFrame {
             }
         });
 
-        jTextField4.setBackground(new java.awt.Color(28, 28, 36));
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-
-        jTextField5.setBackground(new java.awt.Color(28, 28, 36));
-        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-
         jTextField6.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(255, 255, 255));
         jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
@@ -154,6 +139,16 @@ public class Signup extends javax.swing.JFrame {
             }
         });
 
+        jPasswordField2.setBackground(new java.awt.Color(28, 28, 36));
+        jPasswordField2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPasswordField2.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+
+        jPasswordField3.setBackground(new java.awt.Color(28, 28, 36));
+        jPasswordField3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPasswordField3.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+
         jLayeredPane2.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -164,10 +159,10 @@ public class Signup extends javax.swing.JFrame {
         jLayeredPane2.setLayer(jButton7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jTextField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jTextField6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(registerField, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jPasswordField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jPasswordField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
@@ -193,10 +188,10 @@ public class Signup extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
                             .addComponent(jTextField2)
-                            .addComponent(jTextField5)
                             .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField6))))
+                            .addComponent(jTextField6)
+                            .addComponent(jPasswordField2)
+                            .addComponent(jPasswordField3))))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
         jLayeredPane2Layout.setVerticalGroup(
@@ -217,19 +212,19 @@ public class Signup extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel14)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(80, 80, 80))
-                    .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(registerField)))
                 .addGap(69, 69, 69))
@@ -292,14 +287,6 @@ public class Signup extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
@@ -317,11 +304,11 @@ public javax.swing.JTextField getEmailAddress() {
 }
 
 public javax.swing.JTextField getPassword() {
-    return jTextField4; // Assuming this is the password field
+    return jPasswordField3; // Assuming this is the password field
 }
 
 public javax.swing.JTextField getConfirmPassword() {
-    return jTextField5; // Assuming this is the confirm password field
+    return jPasswordField2; // Assuming this is the confirm password field
 }
 
 public javax.swing.JButton getRegisterButton() {
@@ -381,10 +368,10 @@ public javax.swing.JButton getRegisterButton() {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JPasswordField jPasswordField2;
+    private javax.swing.JPasswordField jPasswordField3;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel registerField;
     // End of variables declaration//GEN-END:variables

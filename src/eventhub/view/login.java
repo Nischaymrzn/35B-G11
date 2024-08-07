@@ -130,6 +130,7 @@ public class login extends javax.swing.JFrame {
         jLabel9.setText("Password");
 
         jTextField2.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +140,8 @@ public class login extends javax.swing.JFrame {
         });
 
         jPasswordField1.setBackground(new java.awt.Color(28, 28, 36));
+        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
         jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
 
         jLayeredPane2.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);

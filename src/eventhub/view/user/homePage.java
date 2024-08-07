@@ -36,8 +36,8 @@ public class homePage extends javax.swing.JFrame {
      private void initializeGrid() {
         homePageController.myEventList.forEach((x) -> addGrid(x));
         var grid = new GridLayout(0, 4);
-        grid.setHgap(50);
-        grid.setVgap(10);
+        grid.setHgap(75);
+        grid.setVgap(75);
         jPanel9.setLayout(grid);
     }
 
