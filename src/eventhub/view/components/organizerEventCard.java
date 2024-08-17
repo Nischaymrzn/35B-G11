@@ -4,8 +4,13 @@
  */
 package eventhub.view.components;
 
+import eventhub.dao.EventOperations;
 import eventhub.model.EventModel;
+import eventhub.view.components.eventCard;
+import eventhub.view.organizer.organizerEventsPage;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -13,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,15 +30,16 @@ public class organizerEventCard extends javax.swing.JPanel {
      * Creates new form organizerEventCard
      */
    private EventModel event;
+   private organizerEventsPage eventsPage;
 
     /**
      * Creates new form eventCard
      */
-    public organizerEventCard(EventModel event) {
+    public organizerEventCard(EventModel event, organizerEventsPage eventsPage) {
         
         initComponents();
         this.event=event;
-       
+        this.eventsPage=eventsPage;      
             jLabel2.setText(event.getEventName());
             
             BufferedImage bufferedImage;
@@ -49,11 +56,54 @@ public class organizerEventCard extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(eventCard.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        // Adding action listener to the Edit button
+        jButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Handle the edit action
+                editEventAction();
+            }
+        });
+
+        // Adding action listener to the Delete button
+        jButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Handle the delete action
+                deleteEventAction();
+            }
+        });
+    }
+
+    private void editEventAction() {
+        // Code to handle the edit event
+        // For example, open an edit form for this event
+        organizerEventEdit newPage=new organizerEventEdit(event);
+                newPage.setVisible(true);
+    }
+
+    private void deleteEventAction() {
+        // Code to handle the delete event
+        // For example, ask for confirmation and then delete the event
+        int response = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this event?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
+        if (response == JOptionPane.YES_OPTION) {
+            // Code to delete the event
+            JOptionPane.showMessageDialog(this, "Event deleted: " + event.getEventName());
+                EventOperations eventOps = new EventOperations();
+                int eventIdToDelete = event.getEventId();  // Replace with the actual eventId
+                eventOps.deleteEvent(eventIdToDelete);
+                if (eventsPage != null) {
+                eventsPage.refreshUI();
+            }
+                
+        }
+    }
 
           
             
  
-    }
+    
      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -200,7 +250,7 @@ public class organizerEventCard extends javax.swing.JPanel {
                                 .addComponent(jLabel3))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton2)
                                     .addComponent(jLabel6)))))

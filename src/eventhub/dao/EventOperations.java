@@ -29,6 +29,18 @@ public class EventOperations {
             db.closeConnection(conn);
         }
     }
+    public void deleteEvent(int eventId) {
+        Connection conn = db.openConnection();
+        String sql = "DELETE FROM event WHERE eventId = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, eventId);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(EventOperations.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            db.closeConnection(conn);
+        }
+    }
      public ArrayList<EventModel> getAllEvents() {
         ArrayList<EventModel> events = new ArrayList<>();
         Connection conn = db.openConnection();
