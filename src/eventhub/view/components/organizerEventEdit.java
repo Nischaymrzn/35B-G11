@@ -2,26 +2,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package eventhub.view.organizer;
+package eventhub.view.components;
 
+import eventhub.view.organizer.*;
 import eventhub.controller.FormFillUpController;
+import eventhub.model.EventModel;
 import javax.swing.*;
 import javax.swing.JFileChooser;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class formfillup extends javax.swing.JFrame {
-    private int organizerId;
+public class organizerEventEdit extends javax.swing.JFrame {
+    private EventModel event;
 
-    public formfillup(int organizerId) {
-        this.organizerId = organizerId;
+    public organizerEventEdit(EventModel event) {
+        this.event = event;
         initComponents();
         setTitle("Dashboard - EventHub");
         setSize(1515, 900);
         setLocationRelativeTo(null);
         setResizable(false);
-        new FormFillUpController(this);
+        
     }
 
     // Initialize the form components
@@ -89,7 +91,7 @@ public class formfillup extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Events Details");
+        jLabel1.setText("Edit Events Details");
         jLabel1.setAlignmentY(0.0F);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -435,7 +437,7 @@ public class formfillup extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 897, Short.MAX_VALUE)
         );
 
         pack();
@@ -592,9 +594,7 @@ public class formfillup extends javax.swing.JFrame {
         this.filename = filename;
     }
 
-        public int getOrganizerId() {
-        return organizerId;
-    }
+        
 
 //public static void main(String args[]) {
 //    /* Set the Nimbus look and feel */
