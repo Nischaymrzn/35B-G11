@@ -6,6 +6,7 @@ package eventhub.view.organizer;
 import eventhub.view.organizer.organizerEventsPage;
 import eventhub.view.organizer.organizerMyCustomerPage;
 import eventhub.view.login;
+// import eventhub.model.UserModel;
 import eventhub.model.UserModel;
 
 /**
