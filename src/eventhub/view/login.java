@@ -5,12 +5,12 @@
 package eventhub.view;
 import eventhub.controller.LoginController;
 
-import eventhub.view.user.homePage;
 import eventhub.view.organizer.organizerDashboard;
 import eventhub.view.admin.dashboard;
 import eventhub.dao.UserOperations;
 import eventhub.model.UserModel;
 import javax.swing.JOptionPane;
+import eventhub.view.user.homePage;
 /**
 
 /**
