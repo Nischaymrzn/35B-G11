@@ -986,7 +986,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="4"/>
+                <Property name="text" type="java.lang.String" value="1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel33">
@@ -1029,7 +1029,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="3600"/>
+                <Property name="text" type="java.lang.String" value="900"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
@@ -1089,7 +1089,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="4000"/>
+                <Property name="text" type="java.lang.String" value="1000"/>
               </Properties>
             </Component>
           </SubComponents>

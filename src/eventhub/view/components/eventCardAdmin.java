@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
  *
  * @author hp
  */
-public class organizerEventCard extends javax.swing.JPanel {
+public class eventCardAdmin extends javax.swing.JPanel {
 
     /**
      * Creates new form organizerEventCard
@@ -35,11 +35,11 @@ public class organizerEventCard extends javax.swing.JPanel {
     /**
      * Creates new form eventCard
      */
-    public organizerEventCard(EventModel event, organizerEventsPage eventsPage) {
+    public eventCardAdmin(EventModel event) {
         
         initComponents();
         this.event=event;
-        this.eventsPage=eventsPage;      
+             
             jLabel2.setText(event.getEventName());
             
             BufferedImage bufferedImage;

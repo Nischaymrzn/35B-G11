@@ -15,12 +15,12 @@ public class EventHub {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//                Signup signup = new Signup();
-//                        SignupController controller = new SignupController(signup);
-               login newPage=new login();
-                newPage.setVisible(true);
+                Signup signup = new Signup();
+                        SignupController controller = new SignupController(signup);
+//               login newPage=new login();
+//                newPage.setVisible(true);
 
-//        signup.setVisible(true);
+        signup.setVisible(true);
     }
     
 }
