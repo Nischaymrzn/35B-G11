@@ -8,6 +8,7 @@ import eventhub.dao.Auth;
 import eventhub.model.UserModel;
 import eventhub.view.Signup;
 import javax.swing.JOptionPane;
+import eventhub.view.login;
 
 /**
  * Controller for handling user registration logic.
@@ -50,8 +51,10 @@ public class SignupController {
         if (success) {
             JOptionPane.showMessageDialog(signupView, "Registration successful!");
             signupView.dispose();
-            // Optionally, redirect to the login page
-            // new Login().setVisible(true);
+//             Optionally, redirect to the login page
+            login newPage=new login();
+            newPage.setVisible(true);
+             
         } else {
             JOptionPane.showMessageDialog(signupView, "Registration failed. Please try again.");
         }

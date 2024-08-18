@@ -13,8 +13,8 @@ import javax.swing.event.DocumentListener;
  * @author hp
  */
 public class ticketBookingPage extends javax.swing.JFrame {
-
-    /**
+private EventModel event;
+    /**private
      * Creates new form ticketBookingPage
      */
     public ticketBookingPage(EventModel event) {
@@ -24,7 +24,10 @@ public class ticketBookingPage extends javax.swing.JFrame {
         setSize(1500, 1020);
         setLocationRelativeTo(null);
         setResizable(false);
+        this.event=event;
         System.out.println(event.getEventName());
+        jLabel11.setText(event.getEventName());
+        jLabel12.setText(event.getEventType());
         
            jTextField9.getDocument().addDocumentListener(new DocumentListener() {
         @Override
@@ -75,14 +78,14 @@ public class ticketBookingPage extends javax.swing.JFrame {
         double total = subtotal - discountedAmount;
 
         // Update jLabel34 with the subtotal value (no extra text)
-        jLabel34.setText(String.valueOf(subtotal));
+        jLabel38.setText(String.valueOf(subtotal));
 
         // Update jLabel35 with the total after discount value (no extra text)
         jLabel35.setText(String.valueOf(total));
         
     } catch (NumberFormatException e) {
         // Handle cases where the text is not a valid number
-        jLabel34.setText("Invalid input");
+        jLabel38.setText("Invalid input");
         jLabel35.setText("Invalid input");
     }
 }
@@ -522,7 +525,7 @@ public class ticketBookingPage extends javax.swing.JFrame {
 
         jLabel32.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel32.setText("4");
+        jLabel32.setText("1");
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(204, 204, 204));
@@ -537,7 +540,7 @@ public class ticketBookingPage extends javax.swing.JFrame {
 
         jLabel35.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel35.setText("3600");
+        jLabel35.setText("900");
 
         jButton2.setBackground(new java.awt.Color(225, 70, 88));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -563,7 +566,7 @@ public class ticketBookingPage extends javax.swing.JFrame {
 
         jLabel38.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel38.setText("4000");
+        jLabel38.setText("1000");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -768,10 +771,17 @@ public class ticketBookingPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField12ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-                this.dispose();
-                bookingConfirmed newPage=new bookingConfirmed();
-                newPage.setVisible(true);
+                
+             String fullName = jTextField2.getText();
+    String totalTicket = jLabel32.getText(); // Ensure it's passed as String
+    String totalPrice = jLabel35.getText(); 
+    
+    // Dispose of the current page
+    this.dispose();
+    
+    // Create a new bookingConfirmed page and pass the props
+    bookingConfirmed newPage = new bookingConfirmed(event, fullName, totalTicket, totalPrice);
+    newPage.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     

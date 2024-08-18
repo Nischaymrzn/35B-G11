@@ -4,8 +4,10 @@
  */
 package eventhub.view.user;
 import eventhub.controller.HomePageController;
+import eventhub.dao.EventOperations;
 import eventhub.model.EventModel;
 import eventhub.view.components.eventCard;
+import eventhub.view.login;
 import eventhub.view.user.userHomepage.concert;
 import eventhub.view.user.userHomepage.movies;
 import eventhub.view.user.ticketBookingPage;
@@ -20,7 +22,7 @@ import java.awt.GridLayout;
  */
 public class homePage extends javax.swing.JFrame {
     HomePageController homePageController;
-
+private EventModel event_banner;
     /**
      * Creates new form scroll
      */
@@ -59,6 +61,7 @@ public class homePage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         mainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -84,6 +87,7 @@ public class homePage extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,6 +97,18 @@ public class homePage extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1500, 1200));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton5.setBackground(new java.awt.Color(225, 70, 88));
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Log out");
+        jButton5.setFocusPainted(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 10, 90, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(11, 171, 209));
@@ -282,8 +298,7 @@ public class homePage extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel23)))
-                .addGap(0, 0, 0))
+                        .addComponent(jLabel23))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel18)
@@ -345,6 +360,21 @@ public class homePage extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 1674, 1030));
 
+        jButton6.setBackground(new java.awt.Color(225, 70, 88));
+        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("Get Ticket");
+        jButton6.setBorder(null);
+        jButton6.setBorderPainted(false);
+        jButton6.setFocusPainted(false);
+        jButton6.setMargin(new java.awt.Insets(15, 15, 15, 15));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 110, 40));
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
@@ -380,9 +410,12 @@ public class homePage extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-//        this.dispose();
-//        ticketBookingPage newPage=new ticketBookingPage();
-//        newPage.setVisible(true);
+        EventOperations eventOperations = new EventOperations();
+        int eventId = 14;  // Example event ID; this can be dynamic
+        EventModel event_banner = eventOperations.getEventById(eventId);
+        this.dispose();
+        ticketBookingPage newPage=new ticketBookingPage(event_banner);
+        newPage.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -403,6 +436,17 @@ public class homePage extends javax.swing.JFrame {
         concert su=new concert();
         su.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        login newPage=new login();
+        newPage.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,6 +489,8 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

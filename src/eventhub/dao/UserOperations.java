@@ -28,6 +28,23 @@ public class UserOperations {
         }
         return null;
     }
+    
+    public void deleteUser(int userId) {
+    Connection conn = db.openConnection();
+    String sql = "DELETE FROM users WHERE userId = ?";
+    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setInt(1, userId);
+        int affectedRows = pstmt.executeUpdate();
+        // If affectedRows > 0, that means the deletion was successful
+        
+    } catch (SQLException ex) {
+        Logger.getLogger(UserOperations.class.getName()).log(Level.SEVERE, null, ex);
+    } finally {
+        db.closeConnection(conn);
+    }
+  
+}
+
 
     public UserModel getUser(int userId){
         Connection conn = db.openConnection();
