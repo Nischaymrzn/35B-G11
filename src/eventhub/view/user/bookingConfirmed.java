@@ -4,6 +4,7 @@
  */
 package eventhub.view.user;
 
+
 import eventhub.model.EventModel;
 import eventhub.view.components.eventCard;
 import java.awt.Image;
@@ -14,6 +15,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+
 
 /**
  *
@@ -45,25 +52,59 @@ public class bookingConfirmed extends javax.swing.JFrame {
         jLabel15.setText(totalTicket);
         jLabel17.setText(totalPrice);
         
-        BufferedImage bufferedImage;
-        try {
-            bufferedImage = ImageIO.read(new ByteArrayInputStream(event.getImage()));
-              // Convert BufferedImage to ImageIcon
-            Image originalImage = bufferedImage;
-            
-             Image resizedImage = originalImage.getScaledInstance(85, 85, Image.SCALE_SMOOTH);
-             ImageIcon resizedIcon = new ImageIcon(resizedImage);
-
-            // Set the ImageIcon to the JLabel
-             jLabel6.setIcon(resizedIcon);
-        } catch (IOException ex) {
-            Logger.getLogger(eventCard.class.getName()).log(Level.SEVERE, null, ex);
+        // Generate QR code and set it as an icon to jLabel6
+        String qrData = String.format(
+            "Event ID: %s\nEvent Name: %s\nEvent Time: %s\nPurchased By: %s\nNo. of Tickets: %s\nEvent Rate: %s\nTotal Price: %s\nStatus: Paid",
+            event.getEventId(),            // Replace with actual method to get Event ID
+            event.getEventName(),          // Get the event name
+            event.getEventTime(),          // Get the event time
+            fullName,                      // Full name of the person
+            totalTicket,                   // Number of tickets
+            event.getEventRate(),          // Event rate (price per ticket)
+            totalPrice                     // Total price
+        );
+        BufferedImage qrImage = generateQRCode(qrData);
+        if (qrImage != null) {
+            ImageIcon qrIcon = new ImageIcon(qrImage.getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_SMOOTH));
+            jLabel6.setIcon(qrIcon);
+        } else {
+            Logger.getLogger(bookingConfirmed.class.getName()).log(Level.SEVERE, "Failed to generate QR code");
         }
+    }
+
+    private BufferedImage generateQRCode(String data) {
+        try {
+            BitMatrix bitMatrix = new MultiFormatWriter().encode(data, BarcodeFormat.QR_CODE, 322, 286);
+            return MatrixToImageWriter.toBufferedImage(bitMatrix);
+        } catch (WriterException ex) {
+            Logger.getLogger(bookingConfirmed.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
+        
+       
+//        try {
+//            bufferedImage = ImageIO.read(new ByteArrayInputStream(event.getImage()));
+//              // Convert BufferedImage to ImageIcon
+//            Image originalImage = bufferedImage;
+//            
+//             Image resizedImage = originalImage.getScaledInstance(85, 85, Image.SCALE_SMOOTH);
+//             ImageIcon resizedIcon = new ImageIcon(resizedImage);
+//
+//            // Set the ImageIcon to the JLabel
+//             jLabel6.setIcon(resizedIcon);
+//        } catch (IOException ex) {
+//            Logger.getLogger(eventCard.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
+        
+        
         
         
      
         
-    }
+    
         
         
     
