@@ -12,7 +12,7 @@ public class EventOperations {
 
     public void addEvent(EventModel event) {
         Connection conn = db.openConnection();
-        String sql = "INSERT INTO event (organizerId, eventName, eventType, eventDate, eventTime, eventDescription, eventRate, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO event (organizerId, eventName, eventType, eventDate, eventTime, eventDescription, eventRate, image, eventLocation, eventVenue) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, event.getOrganizerId());
             pstmt.setString(2, event.getEventName());
@@ -22,6 +22,8 @@ public class EventOperations {
             pstmt.setString(6, event.getEventDescription());
             pstmt.setInt(7, event.getEventRate());
             pstmt.setBytes(8, event.getImage());
+            pstmt.setString(9, event.getEventLocation()); // Added line
+            pstmt.setString(10, event.getEventVenue()); // Added line
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(EventOperations.class.getName()).log(Level.SEVERE, null, ex);
@@ -29,6 +31,7 @@ public class EventOperations {
             db.closeConnection(conn);
         }
     }
+
     public void deleteEvent(int eventId) {
         Connection conn = db.openConnection();
         String sql = "DELETE FROM event WHERE eventId = ?";
@@ -41,7 +44,40 @@ public class EventOperations {
             db.closeConnection(conn);
         }
     }
-     public ArrayList<EventModel> getAllEvents() {
+    
+  public void updateEvent(EventModel event) {
+    String query = "UPDATE event SET eventName = ?, eventType = ?, eventDate = ?, eventTime = ?, eventLocation = ?, eventVenue = ?, eventRate = ?, eventDescription = ?, image = ? WHERE eventId = ?";
+    
+    try (Connection conn = db.openConnection();
+         PreparedStatement pstmt = conn.prepareStatement(query)) {
+        
+        pstmt.setString(1, event.getEventName());
+        pstmt.setString(2, event.getEventType());
+        pstmt.setString(3, event.getEventDate());
+        pstmt.setString(4, event.getEventTime());
+        pstmt.setString(5, event.getEventLocation());
+        pstmt.setString(6, event.getEventVenue());
+        pstmt.setDouble(7, event.getEventRate());
+        pstmt.setString(8, event.getEventDescription());
+        pstmt.setBytes(9, event.getImage());
+        pstmt.setInt(10, event.getEventId());
+        System.out.println(event.getEventId());
+
+        // Print the query with the actual values
+        System.out.println("Executing update: " + pstmt.toString());
+
+        int rowsAffected = pstmt.executeUpdate();
+
+        // Confirm if the update was successful
+        System.out.println("Rows affected: " + rowsAffected);
+        
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+
+    public ArrayList<EventModel> getAllEvents() {
         ArrayList<EventModel> events = new ArrayList<>();
         Connection conn = db.openConnection();
         String sql = "SELECT * FROM event";
@@ -56,8 +92,10 @@ public class EventOperations {
                 String eventDescription = resultSet.getString("eventDescription");
                 int eventRate = resultSet.getInt("eventRate");
                 byte[] image = resultSet.getBytes("image");
+                String eventLocation = resultSet.getString("eventLocation"); // Added line
+                String eventVenue = resultSet.getString("eventVenue"); // Added line
 
-                EventModel event = new EventModel(organizerId, eventName, eventType, eventDate, eventTime, eventDescription, eventRate, image);
+                EventModel event = new EventModel(organizerId, eventName, eventType, eventDate, eventTime, eventDescription, eventRate, image, eventLocation, eventVenue);
                 event.setEventId(eventId);
                 events.add(event);
             }
@@ -68,9 +106,8 @@ public class EventOperations {
         }
         return events;
     }
-     
-     
-         public ArrayList<EventModel> getAllConcerts() {
+
+    public ArrayList<EventModel> getAllConcerts() {
         return getEventsByType("concert");
     }
 
@@ -94,8 +131,10 @@ public class EventOperations {
                     String eventDescription = resultSet.getString("eventDescription");
                     int eventRate = resultSet.getInt("eventRate");
                     byte[] image = resultSet.getBytes("image");
+                    String eventLocation = resultSet.getString("eventLocation"); // Added line
+                    String eventVenue = resultSet.getString("eventVenue"); // Added line
 
-                    EventModel event = new EventModel(organizerId, eventName, eventType, eventDate, eventTime, eventDescription, eventRate, image);
+                    EventModel event = new EventModel(organizerId, eventName, eventType, eventDate, eventTime, eventDescription, eventRate, image, eventLocation, eventVenue);
                     event.setEventId(eventId);
                     events.add(event);
                 }
@@ -107,36 +146,39 @@ public class EventOperations {
         }
         return events;
     }
-  public EventModel getEventById(int eventId) {
-    EventModel event = null;
-    Connection conn = db.openConnection();
-    String sql = "SELECT * FROM event WHERE eventId = ?";
-    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-        pstmt.setInt(1, eventId);
-        try (ResultSet resultSet = pstmt.executeQuery()) {
-            if (resultSet.next()) {
-                int organizerId = resultSet.getInt("organizerId");
-                String eventName = resultSet.getString("eventName");
-                String eventType = resultSet.getString("eventType");
-                String eventDate = resultSet.getString("eventDate");
-                String eventTime = resultSet.getString("eventTime");
-                String eventDescription = resultSet.getString("eventDescription");
-                int eventRate = resultSet.getInt("eventRate");
-                byte[] image = resultSet.getBytes("image");
 
-                event = new EventModel(organizerId, eventName, eventType, eventDate, eventTime, eventDescription, eventRate, image);
-                event.setEventId(eventId);
+    public EventModel getEventById(int eventId) {
+        EventModel event = null;
+        Connection conn = db.openConnection();
+        String sql = "SELECT * FROM event WHERE eventId = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, eventId);
+            try (ResultSet resultSet = pstmt.executeQuery()) {
+                if (resultSet.next()) {
+                    int organizerId = resultSet.getInt("organizerId");
+                    String eventName = resultSet.getString("eventName");
+                    String eventType = resultSet.getString("eventType");
+                    String eventDate = resultSet.getString("eventDate");
+                    String eventTime = resultSet.getString("eventTime");
+                    String eventDescription = resultSet.getString("eventDescription");
+                    int eventRate = resultSet.getInt("eventRate");
+                    byte[] image = resultSet.getBytes("image");
+                    String eventLocation = resultSet.getString("eventLocation"); // Added line
+                    String eventVenue = resultSet.getString("eventVenue"); // Added line
+
+                    event = new EventModel(organizerId, eventName, eventType, eventDate, eventTime, eventDescription, eventRate, image, eventLocation, eventVenue);
+                    event.setEventId(eventId);
+                }
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(EventOperations.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            db.closeConnection(conn);
         }
-    } catch (SQLException ex) {
-        Logger.getLogger(EventOperations.class.getName()).log(Level.SEVERE, null, ex);
-    } finally {
-        db.closeConnection(conn);
+        return event;
     }
-    return event;
-}
-  
- public ArrayList<EventModel> getAllOrganizerEvents(int organizerId) {
+
+    public ArrayList<EventModel> getAllOrganizerEvents(int organizerId) {
         ArrayList<EventModel> events = new ArrayList<>();
         Connection conn = db.openConnection();
         String sql = "SELECT * FROM event WHERE organizerId = ?";
@@ -153,22 +195,23 @@ public class EventOperations {
                     String eventDescription = resultSet.getString("eventDescription");
                     int eventRate = resultSet.getInt("eventRate");
                     byte[] image = resultSet.getBytes("image");
+                    String eventLocation = resultSet.getString("eventLocation"); // Added line
+                    String eventVenue = resultSet.getString("eventVenue"); // Added line
 
-                    EventModel event = new EventModel(organizerId, eventName, eventType, eventDate, eventTime, eventDescription, eventRate, image);
+                    EventModel event = new EventModel(organizerId, eventName, eventType, eventDate, eventTime, eventDescription, eventRate, image, eventLocation, eventVenue);
                     event.setEventId(eventId);
                     events.add(event);
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Auth.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EventOperations.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             db.closeConnection(conn);
         }
 
         return events;
     }
+    
+    
 
-     
-       
 }
-

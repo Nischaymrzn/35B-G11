@@ -77,10 +77,12 @@ public class organizerEventCard extends javax.swing.JPanel {
     }
 
     private void editEventAction() {
-        // Code to handle the edit event
-        // For example, open an edit form for this event
-        organizerEventEdit newPage=new organizerEventEdit(event);
-                newPage.setVisible(true);
+        // Open an edit form for this event
+        organizerEventEdit newPage = new organizerEventEdit(event);
+        newPage.setVisible(true);
+
+        // Optionally refresh the events page after editing
+        eventsPage.refreshUI();
     }
 
     private void deleteEventAction() {

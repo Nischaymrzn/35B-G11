@@ -19,6 +19,10 @@ interface EventModelInterface {
     public void setEventDescription(String eventDescription);
     public String getEventTime();
     public void setEventTime(String eventTime);
+    public String getEventLocation();   // Added method
+    public void setEventLocation(String eventLocation);  // Added method
+    public String getEventVenue();   // Added method
+    public void setEventVenue(String eventVenue);  // Added method
 }
 
 public class EventModel implements EventModelInterface {
@@ -31,8 +35,10 @@ public class EventModel implements EventModelInterface {
     private String eventDescription;
     private int eventRate;
     private byte[] image;
+    private String eventLocation;  // Added field
+    private String eventVenue;  // Added field
 
-    public EventModel(int organizerId, String eventName, String eventType, String eventDate, String eventTime, String eventDescription, int eventRate, byte[] image) {
+    public EventModel(int organizerId, String eventName, String eventType, String eventDate, String eventTime, String eventDescription, int eventRate, byte[] image, String eventLocation, String eventVenue) {
         this.organizerId = organizerId;
         this.eventName = eventName;
         this.eventType = eventType;
@@ -41,6 +47,8 @@ public class EventModel implements EventModelInterface {
         this.eventDescription = eventDescription;
         this.eventRate = eventRate;
         this.image = image;
+        this.eventLocation = eventLocation;  // Added initialization
+        this.eventVenue = eventVenue;  // Added initialization
     }
 
     @Override
@@ -82,6 +90,7 @@ public class EventModel implements EventModelInterface {
     public void setEventType(String eventType) {
         this.eventType = eventType;
     }
+
     @Override
     public String getEventDate() {
         return eventDate;
@@ -130,5 +139,25 @@ public class EventModel implements EventModelInterface {
     @Override
     public void setEventTime(String eventTime) {
         this.eventTime = eventTime;
+    }
+
+    @Override
+    public String getEventLocation() {
+        return eventLocation;
+    }
+
+    @Override
+    public void setEventLocation(String eventLocation) {
+        this.eventLocation = eventLocation;
+    }
+
+    @Override
+    public String getEventVenue() {
+        return eventVenue;
+    }
+
+    @Override
+    public void setEventVenue(String eventVenue) {
+        this.eventVenue = eventVenue;
     }
 }

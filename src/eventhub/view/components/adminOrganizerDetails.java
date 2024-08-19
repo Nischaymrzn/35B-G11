@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author hp
  */
-public class adminOrganizerDetials extends javax.swing.JPanel {
+public class adminOrganizerDetails extends javax.swing.JPanel {
 
     /**
      * Creates new form adminOrganizerDetials
@@ -28,7 +28,7 @@ public class adminOrganizerDetials extends javax.swing.JPanel {
     /**
      * Creates new form eventCard
      */
-    public adminOrganizerDetials(UserModel user) {
+    public adminOrganizerDetails(UserModel user) {
         
         initComponents();
         this.user=user;

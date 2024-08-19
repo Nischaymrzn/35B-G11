@@ -14,7 +14,7 @@ import eventhub.view.components.organizerAdd;
 import eventhub.view.components.organizerEventCard;
 import eventhub.view.login;
 import java.awt.GridLayout;
-import eventhub.view.components.adminOrganizerDetials;
+import eventhub.view.components.adminOrganizerDetails;
 
 /**
  *
@@ -45,7 +45,7 @@ public class organizerEdit extends javax.swing.JFrame {
         
     }
          private void addGrid(UserModel data) {
-        var temp = new adminOrganizerDetials(data);
+        var temp = new adminOrganizerDetails(data);
         jPanel4.add(temp);
     }
     

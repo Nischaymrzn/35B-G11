@@ -595,6 +595,14 @@ public class formfillup extends javax.swing.JFrame {
         public int getOrganizerId() {
         return organizerId;
     }
+        public JTextField getEventLocationField() {
+    return jTextField15;  // Replace with the actual JTextField variable for event location
+}
+
+public JTextField getEventVenueField() {
+    return jTextField20;  // Replace with the actual JTextField variable for event venue
+}
+
 
 //public static void main(String args[]) {
 //    /* Set the Nimbus look and feel */
