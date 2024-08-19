@@ -47,7 +47,7 @@ public class organizerEdit extends javax.swing.JFrame {
         
     }
          private void addGrid(UserModel data) {
-        var temp = new adminOrganizerDetails(data);
+        var temp = new adminOrganizerDetails(data,this);
         jPanel11.add(temp);
     }
          
@@ -337,7 +337,7 @@ public class organizerEdit extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        organizerAdd newPage=new organizerAdd();
+        organizerAdd newPage=new organizerAdd(this);
         newPage.setVisible(true);
         
     }//GEN-LAST:event_jButton4ActionPerformed

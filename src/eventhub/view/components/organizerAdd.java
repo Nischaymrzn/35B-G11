@@ -9,18 +9,19 @@ import eventhub.controller.OrganizerAddController;
 import eventhub.database.DatabaseConnection;
 import eventhub.model.UserModel;
 import javax.swing.JOptionPane;
-
+import eventhub.view.admin.organizerEdit;
 /**
  *
  * @author hp
  */
 public class organizerAdd extends javax.swing.JFrame {
-
+private organizerEdit view;
     /**
      * Creates new form organizerAdd
      */
-    public organizerAdd() {
+    public organizerAdd(organizerEdit view) {
         initComponents();
+        this.view=view;
         setTitle("Add Organizer - EventHub");
         setSize(715, 755);
         setLocationRelativeTo(null);
@@ -250,6 +251,9 @@ public class organizerAdd extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Failed to add organizer.");
     }
         this.dispose();
+        view.dispose();
+        organizerEdit newPage=new organizerEdit();
+        newPage.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -271,37 +275,7 @@ public class organizerAdd extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(organizerAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(organizerAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(organizerAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(organizerAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new organizerAdd().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton7;

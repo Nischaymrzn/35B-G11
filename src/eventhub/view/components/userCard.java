@@ -9,6 +9,7 @@ import eventhub.dao.UserOperations;
 import eventhub.model.EventModel;
 import eventhub.model.UserModel;
 import eventhub.view.admin.organizerEdit;
+import eventhub.view.admin.userEdit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -17,21 +18,23 @@ import javax.swing.JOptionPane;
  *
  * @author hp
  */
-public class adminOrganizerDetails extends javax.swing.JPanel {
+public class userCard extends javax.swing.JPanel {
+    private userEdit userEdit;
 
     /**
      * Creates new form adminOrganizerDetials
      */
     private UserModel user;
-   private organizerEdit view;
+    private userEdit view;
+//   private organizerEdit organizerEdit;
 
     /**
      * Creates new form eventCard
      */
-    public adminOrganizerDetails(UserModel user,organizerEdit view) {
+    public userCard(UserModel user,userEdit view) {
+        this.view=view;
         
         initComponents();
-        this.view=view;
         
         
         this.user=user;
@@ -49,8 +52,6 @@ public class adminOrganizerDetails extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Handle the edit action
-                organizerAdminEdit newPage=new organizerAdminEdit(user,view);
-                newPage.setVisible(true);
                 
             }
         });
@@ -67,11 +68,16 @@ public class adminOrganizerDetails extends javax.swing.JPanel {
     
   
 
-   
+//    private void editEventAction() {
+//        // Code to handle the edit event
+//        // For example, open an edit form for this event
+//        organizerEventEdit newPage=new organizerEventEdit();
+//                newPage.setVisible(true);
+//    }
 
     private void deleteOrganizerAction() {
         // Confirmation dialog before deletion
-        int response = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this organizer?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
+        int response = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this user?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
         if (response == JOptionPane.YES_OPTION) {
             // Delete the organizer
             UserOperations userOps = new UserOperations();
@@ -79,12 +85,13 @@ public class adminOrganizerDetails extends javax.swing.JPanel {
             userOps.deleteUser(userIdToDelete);
             
             // Notify the user of successful deletion
-            JOptionPane.showMessageDialog(this, "Organizer deleted: " + user.getUserName());
+            JOptionPane.showMessageDialog(this, "User deleted: " + user.getUserName());
 
             // Refresh the UI if applicable
-            view.dispose();
-            organizerEdit newPage=new organizerEdit();
-            newPage.setVisible(true);
+         view.dispose();
+         userEdit newPage=new userEdit();
+         newPage.setVisible(true);
+            
         }
     }
     /**

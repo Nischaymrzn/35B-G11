@@ -94,4 +94,46 @@ public class UserOperations {
         }
         return organizers;
     }
+    
+     public ArrayList<UserModel> getAllClients(){
+        Connection conn = db.openConnection();
+        String sql = "SELECT * FROM users WHERE userRole = 'user'";
+        ArrayList<UserModel> clients = new ArrayList<>();
+        try(PreparedStatement pstmt = conn.prepareStatement(sql)){
+            ResultSet result = pstmt.executeQuery();
+            while(result.next()){
+                UserModel user = new UserModel(
+                    result.getString("userName"),
+                    result.getString("userEmail"),
+                    result.getString("userPassword")
+                );
+                user.setUserId(result.getInt("userId"));
+                user.setUserRole(result.getString("userRole"));
+                user.setUserPassword(null);
+                clients.add(user);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Auth.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            db.closeConnection(conn);
+        }
+        return clients;
+    }
+     
+     public void updateUser(UserModel user) {
+        Connection conn = db.openConnection();
+        String sql = "UPDATE users SET userName = ?, userEmail = ?, userPassword = ?, userRole = ? WHERE userId = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, user.getUserName());
+            pstmt.setString(2, user.getUserEmail());
+            pstmt.setString(3, user.getUserPassword());
+            pstmt.setString(4, user.getUserRole());
+            pstmt.setInt(5, user.getUserId());
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserOperations.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            db.closeConnection(conn);
+        }
+    }
 }

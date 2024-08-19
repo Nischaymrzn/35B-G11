@@ -3,28 +3,69 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package eventhub.view.admin;
+import eventhub.controller.OrganizerDetailsController;
+import eventhub.model.UserModel;
 import eventhub.view.admin.dashboard;
 import eventhub.view.admin.eventListPage;
 import eventhub.view.admin.organizerEdit;
+import eventhub.view.components.adminOrganizerDetails;
 import eventhub.view.components.userAdd;
 import eventhub.view.login;
+import java.awt.GridLayout;
+import eventhub.controller.UserDetailsController;
+import eventhub.view.components.userCard;
 
 /**
  *
  * @author hp
  */
 public class userEdit extends javax.swing.JFrame {
+    UserDetailsController userDetailsController;
 
     /**
      * Creates new form dashboard
      */
     public userEdit() {
         initComponents();
+        userDetailsController = new UserDetailsController();
         setTitle("Admin Dashboard - EventHub");
         setSize(1500, 1020);
         setLocationRelativeTo(null);
         setResizable(false);
+        initializeGrid();
     }
+    
+         private void initializeGrid() {
+        userDetailsController.myEventList.forEach((x) -> addGrid(x));
+        var grid = new GridLayout(0, 1);
+        grid.setHgap(75);
+        grid.setVgap(40);
+
+        jPanel4.setLayout(grid);
+        
+        
+    }
+         private void addGrid(UserModel data) {
+        var temp = new userCard(data,this);
+        jPanel4.add(temp);
+    }
+         public void refreshUI() {
+    // Clear existing components
+    jPanel4.removeAll();
+    jPanel4.revalidate();
+    jPanel4.repaint();
+    
+    // Reinitialize the grid with updated event list
+   
+    userDetailsController = new UserDetailsController();
+    initializeGrid();
+    
+}
+         public void destroy(){
+             this.dispose();
+        userEdit newPage=new userEdit();
+        newPage.setVisible(true);
+         }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,8 +87,7 @@ public class userEdit extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -193,15 +233,18 @@ public class userEdit extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jPanel4.setBackground(new java.awt.Color(28, 28, 36));
 
-            },
-            new String [] {
-                "Name", "Email", "Phone Number", "Address"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 172, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -210,10 +253,10 @@ public class userEdit extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 760, Short.MAX_VALUE)
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(360, 360, 360))
         );
@@ -224,8 +267,8 @@ public class userEdit extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -342,7 +385,6 @@ public class userEdit extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }

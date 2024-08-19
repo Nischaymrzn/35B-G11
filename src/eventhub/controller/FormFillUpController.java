@@ -10,12 +10,17 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import eventhub.view.organizer.organizerEventsPage;
 
 public class FormFillUpController {
     private formfillup view;
+    private organizerEventsPage org;
     private EventOperations eventOps;
+    private organizerEventsPage eventsPage;
 
-    public FormFillUpController(formfillup view) {
+    public FormFillUpController(formfillup view,organizerEventsPage org) {
+        this.org=org;
+        
         this.view = view;
         this.eventOps = new EventOperations();
 
@@ -87,10 +92,14 @@ public class FormFillUpController {
 
         // Inform user of success
         JOptionPane.showMessageDialog(view, "Event submitted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        
+        
         view.dispose();
+        org.dispose();
+        organizerEventsPage newPage=new organizerEventsPage(org.user);
+        newPage.setVisible(true);
     } catch (NumberFormatException e) {
         JOptionPane.showMessageDialog(view, "Invalid ticket rate format", "Form Validation Error", JOptionPane.ERROR_MESSAGE);
     }
 }
-
 }
