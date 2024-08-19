@@ -11,22 +11,24 @@ import eventhub.database.DatabaseConnection;
 import eventhub.model.UserModel;
 import javax.swing.JOptionPane;
 import eventhub.view.admin.organizerEdit;
+import eventhub.view.admin.userEdit;
 
 /**
  *
  * @author hp
  */
-public class organizerAdminEdit extends javax.swing.JFrame {
+public class userAdminEdit extends javax.swing.JFrame {
 private UserModel user;
-private organizerEdit view;
+private userEdit view;
     /**
      * Creates new form organizerAdd
      */
-    public organizerAdminEdit(UserModel user,organizerEdit view) {
+    public userAdminEdit(UserModel user,userEdit view) {
         initComponents();
         this.user=user;
         this.view=view;
-        setTitle("Edit Organizer - EventHub");
+        
+        setTitle("Edit User - EventHub");
         setSize(715, 755);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -51,13 +53,11 @@ private organizerEdit view;
         jSeparator1 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
 
@@ -74,7 +74,7 @@ private organizerEdit view;
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Edit Organizer");
+        jLabel1.setText("Edit User");
 
         jSeparator1.setBackground(new java.awt.Color(0, 102, 102));
         jSeparator1.setForeground(new java.awt.Color(0, 102, 102));
@@ -87,10 +87,6 @@ private organizerEdit view;
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Full Name");
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Location");
-
         jLabel14.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Password");
@@ -102,7 +98,7 @@ private organizerEdit view;
         jButton7.setBackground(new java.awt.Color(225, 70, 88));
         jButton7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Add Organizer");
+        jButton7.setText("Update User");
         jButton7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton7.setFocusPainted(false);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -131,16 +127,6 @@ private organizerEdit view;
             }
         });
 
-        jTextField4.setBackground(new java.awt.Color(28, 28, 36));
-        jTextField4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-
         jTextField6.setBackground(new java.awt.Color(28, 28, 36));
         jTextField6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(255, 255, 255));
@@ -155,6 +141,11 @@ private organizerEdit view;
         jPasswordField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
         jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -178,8 +169,6 @@ private organizerEdit view;
                                 .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
                                 .addComponent(jLabel15)
                                 .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
-                                .addComponent(jLabel13)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
                                 .addComponent(jLabel14)
                                 .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
                                 .addComponent(jPasswordField1)))))
@@ -204,17 +193,13 @@ private organizerEdit view;
                 .addComponent(jLabel15)
                 .addGap(18, 18, 18)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(38, 38, 38)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,12 +229,11 @@ private organizerEdit view;
         String userName = jTextField6.getText();
         String phoneNumber = jTextField2.getText();
         String email = jTextField3.getText();
-        String location = jTextField4.getText();
         char[] passwordChars = jPasswordField1.getPassword();
         String password = new String(passwordChars);
         int userId=user.getUserId();
 
-        UserModel user = new UserModel(userId,userName, email, password, "organizer");
+        UserModel user = new UserModel(userId,userName, email, password, "user");
         
 
         UserOperations operations = new UserOperations();
@@ -260,8 +244,9 @@ private organizerEdit view;
         // Close the current window
         this.dispose();
         view.dispose();
-        organizerEdit newPage=new organizerEdit();
+        userEdit newPage=new userEdit();
         newPage.setVisible(true);
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -272,13 +257,13 @@ private organizerEdit view;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,7 +275,6 @@ private organizerEdit view;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JList<String> jList1;
@@ -300,7 +284,6 @@ private organizerEdit view;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

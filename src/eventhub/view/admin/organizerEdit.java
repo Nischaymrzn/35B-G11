@@ -51,6 +51,7 @@ public class organizerEdit extends javax.swing.JFrame {
         jPanel11.add(temp);
     }
          
+         
     public void refreshUI() {
     // Clear existing components
     jPanel11.removeAll();

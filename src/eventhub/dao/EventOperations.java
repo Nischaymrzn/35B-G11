@@ -46,21 +46,21 @@ public class EventOperations {
     }
     
   public void updateEvent(EventModel event) {
-    String query = "UPDATE event SET eventName = ?, eventType = ?, eventDate = ?, eventTime = ?, eventLocation = ?, eventVenue = ?, eventRate = ?, eventDescription = ?, image = ? WHERE eventId = ?";
+    String query = "UPDATE event SET organizerId=?, eventName = ?, eventType = ?, eventDate = ?, eventTime = ?, eventRate = ?, eventDescription = ?, image = ?, eventLocation = ?, eventVenue = ? WHERE eventId = ?";
     
     try (Connection conn = db.openConnection();
          PreparedStatement pstmt = conn.prepareStatement(query)) {
-        
-        pstmt.setString(1, event.getEventName());
-        pstmt.setString(2, event.getEventType());
-        pstmt.setString(3, event.getEventDate());
-        pstmt.setString(4, event.getEventTime());
-        pstmt.setString(5, event.getEventLocation());
-        pstmt.setString(6, event.getEventVenue());
-        pstmt.setDouble(7, event.getEventRate());
-        pstmt.setString(8, event.getEventDescription());
-        pstmt.setBytes(9, event.getImage());
-        pstmt.setInt(10, event.getEventId());
+        pstmt.setInt(1, event.getOrganizerId());
+        pstmt.setString(2, event.getEventName());
+        pstmt.setString(3, event.getEventType());
+        pstmt.setString(4, event.getEventDate());
+        pstmt.setString(5, event.getEventTime());
+        pstmt.setDouble(6, event.getEventRate());
+        pstmt.setString(7, event.getEventDescription());
+        pstmt.setBytes(8, event.getImage());
+        pstmt.setString(9, event.getEventLocation());
+        pstmt.setString(10, event.getEventVenue());
+        pstmt.setInt(11, event.getEventId());
         System.out.println(event.getEventId());
 
         // Print the query with the actual values

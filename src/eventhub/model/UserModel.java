@@ -34,6 +34,13 @@ public class UserModel implements UserModelInterface {
         this.userPassword = userPassword;
         this.userRole = userRole;
     }
+     public UserModel(int userId,String userName, String userEmail, String userPassword, String userRole) {
+         this.userId=userId;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        this.userRole = userRole;
+    }
     @Override
     public int getUserId() {
         return userId;

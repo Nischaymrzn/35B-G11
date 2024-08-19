@@ -28,18 +28,19 @@ public class organizerEventEdit extends javax.swing.JFrame {
         setResizable(false);
         new EventEditController(this);
         renderEventDetails(event);
-        
     }
-    public void renderEventDetails(EventModel event) {
-    jTextField1.setText(event.getEventName());
-    jTextField5.setText(event.getEventType());
-    jTextField16.setText(event.getEventDate());
-    jTextField13.setText(event.getEventTime());
-    jTextField20.setText(event.getEventLocation());
-    jTextField15.setText(event.getEventVenue());
-    jTextField18.setText(String.valueOf(event.getEventRate()));
-    jTextField22.setText(event.getEventDescription());
     
+    public void renderEventDetails(EventModel event) {
+        
+        jTextField1.setText(event.getEventName());
+        jTextField5.setText(event.getEventType());
+        jTextField16.setText(event.getEventDate());
+        jTextField13.setText(event.getEventTime());
+        jTextField20.setText(event.getEventLocation());
+        jTextField15.setText(event.getEventVenue());
+        jTextField18.setText(String.valueOf(event.getEventRate()));
+        jTextField22.setText(event.getEventDescription());
+
     // If you need to display the image
     if (event.getImage() != null) {
         ImageIcon imageIcon = new ImageIcon(event.getImage());
@@ -573,6 +574,9 @@ public void refreshEventDetails() {
     }
         public int getEventId(){
             return this.eventId;
+        }
+        public int getOrganizerId(){
+            return this.event.getOrganizerId();
         }
     
     public JTextField getTicketRateField() {
