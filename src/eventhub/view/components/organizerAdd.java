@@ -104,6 +104,7 @@ public class organizerAdd extends javax.swing.JFrame {
         });
 
         jTextField2.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -113,6 +114,7 @@ public class organizerAdd extends javax.swing.JFrame {
         });
 
         jTextField3.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(255, 255, 255));
         jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +124,7 @@ public class organizerAdd extends javax.swing.JFrame {
         });
 
         jTextField4.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(255, 255, 255));
         jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -131,6 +134,7 @@ public class organizerAdd extends javax.swing.JFrame {
         });
 
         jTextField6.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(255, 255, 255));
         jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +144,8 @@ public class organizerAdd extends javax.swing.JFrame {
         });
 
         jPasswordField1.setBackground(new java.awt.Color(28, 28, 36));
-        jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
         jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
