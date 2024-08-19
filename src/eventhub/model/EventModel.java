@@ -50,6 +50,19 @@ public class EventModel implements EventModelInterface {
         this.eventLocation = eventLocation;  // Added initialization
         this.eventVenue = eventVenue;  // Added initialization
     }
+    public EventModel(int eventId,int organizerId, String eventName, String eventType, String eventDate, String eventTime, String eventDescription, int eventRate, byte[] image, String eventLocation, String eventVenue) {
+        this.eventId=eventId;
+        this.organizerId = organizerId;
+        this.eventName = eventName;
+        this.eventType = eventType;
+        this.eventDate = eventDate;
+        this.eventTime = eventTime;
+        this.eventDescription = eventDescription;
+        this.eventRate = eventRate;
+        this.image = image;
+        this.eventLocation = eventLocation;  // Added initialization
+        this.eventVenue = eventVenue;  // Added initialization
+    }
 
     @Override
     public int getEventId() {

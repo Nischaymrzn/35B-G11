@@ -41,6 +41,10 @@ public class organizerEventCard extends javax.swing.JPanel {
         this.event=event;
         this.eventsPage=eventsPage;      
             jLabel2.setText(event.getEventName());
+            jLabel12.setText(String.valueOf(event.getEventRate()));
+            jLabel13.setText(event.getEventDate());
+            jLabel3.setText(event.getEventType());
+            jLabel6.setText(event.getEventLocation());
             
             BufferedImage bufferedImage;
         try {

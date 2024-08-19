@@ -13,6 +13,7 @@ import eventhub.view.admin.userEdit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import eventhub.view.components.userAdminEdit;
 
 /**
  *
@@ -52,6 +53,8 @@ public class userCard extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Handle the edit action
+                userAdminEdit newPage=new userAdminEdit(user,view);
+                newPage.setVisible(true);
                 
             }
         });

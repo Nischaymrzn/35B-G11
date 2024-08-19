@@ -6,6 +6,7 @@ package eventhub.controller;
 import eventhub.dao.EventOperations;
 import eventhub.model.EventModel;
 import eventhub.view.components.organizerEventEdit;
+import eventhub.view.organizer.organizerEventsPage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -17,6 +18,7 @@ import javax.swing.JOptionPane;
 public class EventEditController {
     private organizerEventEdit view;
     private EventOperations eventOps;
+    private organizerEventsPage eventsPage;
 
     public EventEditController(organizerEventEdit view) {
         this.view = view;
@@ -71,7 +73,7 @@ public class EventEditController {
         String ticketRate = view.getTicketRateField().getText();
         byte[] photo = view.getPhoto();
         int eventId = view.getEventId(); // Ensure getter is properly defined
-
+        int organizerId=view.getOrganizerId();
         // Perform validation
         if (eventName.isEmpty() || eventType.isEmpty() || eventDate.isEmpty() || eventTime.isEmpty() ||
             eventLocation.isEmpty() || eventVenue.isEmpty() || eventDescription.isEmpty() || ticketRate.isEmpty() || photo == null) {
@@ -83,7 +85,7 @@ public class EventEditController {
             int rate = Integer.parseInt(ticketRate);
 
             // Create EventModel and set values
-            EventModel event = new EventModel(eventId, eventName, eventType, eventDate, eventTime, eventDescription, rate, photo, eventLocation, eventVenue);
+            EventModel event = new EventModel(eventId,organizerId, eventName, eventType, eventDate, eventTime, eventDescription, rate, photo, eventLocation, eventVenue);
 
             // Update in database
             eventOps.updateEvent(event);
