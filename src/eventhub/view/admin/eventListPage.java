@@ -38,8 +38,8 @@ public class eventListPage extends javax.swing.JFrame {
      private void initializeGrid() {
          adminEventController.myEventList.forEach((x) -> addGrid(x));
         var grid = new GridLayout(0, 1);
-        grid.setHgap(75);
-        grid.setVgap(75);
+        grid.setHgap(40);
+        grid.setVgap(30);
         jPanel4.setLayout(grid);
         
      
@@ -217,7 +217,7 @@ public class eventListPage extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1105, Short.MAX_VALUE)
+            .addGap(0, 223, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -237,8 +237,8 @@ public class eventListPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(888, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel3);

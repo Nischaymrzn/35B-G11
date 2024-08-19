@@ -13,15 +13,17 @@ import java.io.IOException;
 
 public class formfillup extends javax.swing.JFrame {
     private int organizerId;
+    private organizerEventsPage view;
 
-    public formfillup(int organizerId) {
+    public formfillup(int organizerId,organizerEventsPage view) {
         this.organizerId = organizerId;
+        this.view=view;
         initComponents();
         setTitle("Dashboard - EventHub");
         setSize(1515, 900);
         setLocationRelativeTo(null);
         setResizable(false);
-        new FormFillUpController(this);
+        new FormFillUpController(this,view);
     }
 
     // Initialize the form components
@@ -118,6 +120,7 @@ public class formfillup extends javax.swing.JFrame {
         );
 
         jTextField1.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setToolTipText("");
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
@@ -128,6 +131,7 @@ public class formfillup extends javax.swing.JFrame {
         });
 
         jTextField5.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jTextField5.setForeground(new java.awt.Color(255, 255, 255));
         jTextField5.setToolTipText("");
         jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
@@ -161,6 +165,7 @@ public class formfillup extends javax.swing.JFrame {
         );
 
         jTextField16.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField16.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jTextField16.setForeground(new java.awt.Color(255, 255, 255));
         jTextField16.setToolTipText("");
         jTextField16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
@@ -171,6 +176,7 @@ public class formfillup extends javax.swing.JFrame {
         });
 
         jTextField13.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField13.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jTextField13.setForeground(new java.awt.Color(255, 255, 255));
         jTextField13.setToolTipText("");
         jTextField13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
@@ -181,6 +187,7 @@ public class formfillup extends javax.swing.JFrame {
         });
 
         jTextField14.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField14.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jTextField14.setForeground(new java.awt.Color(255, 255, 255));
         jTextField14.setToolTipText("");
         jTextField14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
@@ -195,6 +202,7 @@ public class formfillup extends javax.swing.JFrame {
         jLabel9.setText("Venue");
 
         jTextField15.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField15.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jTextField15.setForeground(new java.awt.Color(255, 255, 255));
         jTextField15.setToolTipText("");
         jTextField15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
@@ -217,16 +225,19 @@ public class formfillup extends javax.swing.JFrame {
         jLabel15.setText("Ticket Rate");
 
         jTextField20.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField20.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jTextField20.setForeground(new java.awt.Color(255, 255, 255));
         jTextField20.setToolTipText("");
         jTextField20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
 
         jTextField18.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField18.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jTextField18.setForeground(new java.awt.Color(255, 255, 255));
         jTextField18.setToolTipText("");
         jTextField18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
 
         jTextField22.setBackground(new java.awt.Color(28, 28, 36));
+        jTextField22.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jTextField22.setForeground(new java.awt.Color(255, 255, 255));
         jTextField22.setToolTipText("");
         jTextField22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
@@ -240,6 +251,7 @@ public class formfillup extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Poster");
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("No image selected");
         jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
@@ -435,7 +447,7 @@ public class formfillup extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE)
         );
 
         pack();
@@ -595,6 +607,14 @@ public class formfillup extends javax.swing.JFrame {
         public int getOrganizerId() {
         return organizerId;
     }
+        public JTextField getEventLocationField() {
+    return jTextField15;  // Replace with the actual JTextField variable for event location
+}
+
+public JTextField getEventVenueField() {
+    return jTextField20;  // Replace with the actual JTextField variable for event venue
+}
+
 
 //public static void main(String args[]) {
 //    /* Set the Nimbus look and feel */

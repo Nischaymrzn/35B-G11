@@ -77,10 +77,12 @@ public class organizerEventCard extends javax.swing.JPanel {
     }
 
     private void editEventAction() {
-        // Code to handle the edit event
-        // For example, open an edit form for this event
-        organizerEventEdit newPage=new organizerEventEdit(event);
-                newPage.setVisible(true);
+        // Open an edit form for this event
+        organizerEventEdit newPage = new organizerEventEdit(event);
+        newPage.setVisible(true);
+
+        // Optionally refresh the events page after editing
+        eventsPage.refreshUI();
     }
 
     private void deleteEventAction() {
@@ -128,7 +130,7 @@ public class organizerEventCard extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(28, 28, 36));
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/eventhub/assets/Rectangle 3963.png"))); // NOI18N
 
@@ -193,7 +195,7 @@ public class organizerEventCard extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(72, 72, 72)
+                            .addGap(50, 50, 50)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
@@ -215,7 +217,7 @@ public class organizerEventCard extends javax.swing.JPanel {
                                 .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(172, 172, 172))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(80, 80, 80)
+                            .addGap(50, 50, 50)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,7 +236,7 @@ public class organizerEventCard extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 996, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +257,7 @@ public class organizerEventCard extends javax.swing.JPanel {
                                     .addComponent(jButton2)
                                     .addComponent(jLabel6)))))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,7 +275,7 @@ public class organizerEventCard extends javax.swing.JPanel {
                                 .addComponent(jLabel11)
                                 .addGap(2, 2, 2)
                                 .addComponent(jLabel12)))
-                        .addGap(21, 21, 21))
+                        .addGap(10, 10, 10))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(35, 35, 35))))
